@@ -1,0 +1,99 @@
+/*imported from w3school*/
+/*แก้เฉพาะส่วน navbar*/
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+nav {
+    margin: 20px;
+}
+
+#top_row {
+    flex-direction: row;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+#bottom_row {
+    margin-top: 15px;
+    flex-direction: row;
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 100%;
+}
+
+.on_change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+}
+
+.on_change .bar2 {opacity: 0;}
+
+.on_change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+}
+
+#shop_name {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#login_btn {
+    text-align: right;
+    position: absolute;
+    right: 0;
+    color: gray;
+}
+
+#search_box {
+    width: 100%;
+}
+
+#search_box form {
+    display: flex;           /* arrange input and button in a row */
+    width: 100%;             /* take full width of parent */
+    box-sizing: border-box;  /* include padding/border in width */
+}
+
+#search_param {
+    flex: 1;                 /* take remaining space */
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px; /* rounded corners on left */
+    outline: none;
+}
+
+#search_confirm {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-left: none;       /* avoid double border */
+    border-radius: 0 4px 4px 0; /* rounded corners on right */
+    background-color: #eee;
+    cursor: pointer;
+}
+
+#search_form input {
+    font-size: 16px;
+    border: 4px solid black;
+}
+
+#search_form button {
+    background-color: black;
+    color: white;
+    border: none;
+}

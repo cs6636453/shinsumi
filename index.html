@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" href="assets/favicon/xobazjr.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="assets/style/nav.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>Home | We are Gadget Store</title>
+</head>
+<body>
+    <nav>
+
+        <div id="top_row">
+            <!--ปุ่มเลือกเมนู-->
+            <section class="container" id="menu_btn" onclick="animateMenuButton(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </section>
+
+            <!--ชื่อร้าน-->
+            <section id="shop_name">
+                GADGET STORE
+            </section>
+
+            <!--ปุ่ม Login-->
+            <section id="login_btn">
+                LOGIN
+            </section>
+        </div>
+
+        <div id="bottom_row">
+            <!--แถบค้นหา-->
+            <section id="search_box">
+                <form id="search_form" onsubmit="return false;">
+                    <input type="text" name="search" placeholder="ค้นหาสินค้า..." id="search_param">
+                    <button type="submit"><span class="material-symbols-outlined">search</span></button>
+                </form>
+            </section>
+        </div>
+    </nav>
+    <script>
+        function animateMenuButton(el) {
+            el.classList.toggle("on_change");
+        }
+    </script>
+</body>
+</html>
