@@ -14,15 +14,18 @@
     to {opacity: 1}
 }
 
-.mySlides img {display: none;}
+.mySlides img {
+    display: none;
+}
 
+/* ------------------- BRAND ------------------- */
 #query_by_brand {
-    display: inline-flex;   /* keeps items in a row */
-    overflow-x: auto;       /* enables horizontal scrolling */
-    overflow-y: hidden;     /* hides vertical scrollbar */
-    white-space: nowrap;    /* prevents items from wrapping to next line */
-    width: 100%;            /* optional, make it full width */
-    box-sizing: border-box; /* include padding in width */
+    display: inline-flex;       /* keeps items in a row */
+    overflow-x: auto;           /* enables horizontal scrolling */
+    overflow-y: hidden;         /* hides vertical scrollbar */
+    white-space: nowrap;        /* prevents items from wrapping */
+    width: 100%;                /* full width */
+    box-sizing: border-box;     /* include padding in width */
 }
 
 #query_by_brand a img {
@@ -31,16 +34,25 @@
     border: 5px solid lightgray;
 }
 
+/* ------------------- HEADERS ------------------- */
 h1 {
     margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-size: 28px;
 }
 
+#recommend {
+    text-align: center;
+    background-color: lightgray;
+    padding-top: 10px;
+}
+
+/* ------------------- CATEGORY ------------------- */
 #query_by_category {
     display: flex;
     gap: 20px;                  /* space between items */
-    padding: 0 20px 20px;        /* left-right + 5px bottom padding */
+    padding: 0 20px 25px;       /* left-right + bottom padding (gap to scrollbar) */
     overflow-x: auto;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
@@ -54,13 +66,16 @@ h1 {
     text-decoration: none;
     outline: none;
     color: inherit;
+    border-radius: 20px;       /* match image corners */
+    overflow: hidden;          /* clip gradient inside image */
+    -webkit-tap-highlight-color: transparent; /* remove blue tap highlight */
 }
 
 #query_by_category a img {
     display: block;
     width: 150px;
     border-radius: 20px;
-    margin-bottom: 20px;       /* space below image */
+    margin-bottom: 0;          /* no gap, gradient stays inside */
 }
 
 /* gradient overlay only behind text */
@@ -72,8 +87,8 @@ h1 {
     width: 100%;
     height: 40%;
     background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
-    border-radius: 0 0 20px 20px;
     pointer-events: none;
+    z-index: 1;   /* behind text */
 }
 
 #query_by_category a p {
@@ -92,4 +107,67 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0 5px;
+    z-index: 2;   /* above gradient */
+}
+
+/* ------------------- RECOMMEND ------------------- */
+#recommend_by_category {
+    display: flex;
+    gap: 20px;                  /* space between items */
+    padding: 0 20px 25px;       /* left-right + bottom padding (gap to scrollbar) */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+}
+
+#recommend_by_category a {
+    position: relative;
+    flex: 0 0 auto;
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    color: inherit;
+    border-radius: 20px;
+    overflow: hidden;          /* clip gradient inside image */
+    -webkit-tap-highlight-color: transparent;
+}
+
+#recommend_by_category a img {
+    display: block;
+    width: 150px;
+    border-radius: 20px;
+    margin-bottom: 0;
+}
+
+/* gradient overlay only behind text */
+#recommend_by_category a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+    pointer-events: none;
+    z-index: 1;
+}
+
+#recommend_by_category a p {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    width: 100%;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 5px;
+    z-index: 2;
 }
