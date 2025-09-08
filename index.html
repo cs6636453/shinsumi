@@ -4,7 +4,9 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="icon" href="assets/favicon/xobazjr.ico" type="image/x-icon" />
     <link rel="stylesheet" href="assets/style/nav.css" />
+    <link rel="stylesheet" href="assets/style/global.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/style/index.css">
     <title>Home | We are Gadget Store</title>
 </head>
 <body>
@@ -20,12 +22,12 @@
 
             <!--ชื่อร้าน-->
             <section id="shop_name">
-                GADGET STORE
+                <a href="#">GADGET STORE</a>
             </section>
 
             <!--ปุ่ม Login-->
             <section id="login_btn">
-                LOGIN
+                <a href="login">LOGIN</a>
             </section>
         </div>
 
@@ -39,10 +41,35 @@
             </section>
         </div>
     </nav>
-    <script>
-        function animateMenuButton(el) {
-            el.classList.toggle("on_change");
-        }
-    </script>
+
+    <main>
+
+        <!--dev here-->
+        <section id="ads">
+            <a href="https://www.youtube.com/@XobazJr" class="fade"><img class="mySlides" src="assets/images/ads/dummy.png" alt="dummy_ads"></a>
+            <a href="https://masstransit.wasabi.winsanmwtv.me/" class="fade"><img class="mySlides" src="assets/images/ads/kn24.png" alt="konno24"></a>
+        </section>
+
+        <section id="query_by_brand">
+            <a href="search/?search=apple"><img src="assets/images/query_by_logo/apple.png" alt="Apple Brand"></a>
+            <a href="search/?search=muji"><img src="assets/images/query_by_logo/muji.png" alt="Muji Brand"></a>
+            <a href="search/?search=samsung"><img src="assets/images/query_by_logo/samsung.png" alt="Samsung Brand"></a>
+            <a href="search/?search=xiaomi"><img src="assets/images/query_by_logo/xiaomi.png" alt="Xiaomi Brand"></a>
+        </section>
+
+        <h1>หมวดหมู่</h1>
+
+        <section id="query_by_category">
+            <a href="search/?search=mobile_case"><img src="assets/images/category/case_mobile.png" alt="Mobile Case"><p>เคสมือถือ</p></a>
+            <a href="search/?search=mobile_case"><img src="assets/images/category/case_mobile.png" alt="Mobile Case"><p>เคสมือถือ</p></a>
+            <a href="search/?search=mobile_case"><img src="assets/images/category/case_mobile.png" alt="Mobile Case"><p>เคสมือถือ</p></a>
+            <a href="search/?search=mobile_case"><img src="assets/images/category/case_mobile.png" alt="Mobile Case"><p>เคสมือถือ</p></a>
+            <a href="search/?search=mobile_case"><img src="assets/images/category/case_mobile.png" alt="Mobile Case"><p>เคสมือถือ</p></a>
+            <a href="search/?search=mobile_case"><img src="assets/images/category/case_mobile.png" alt="Mobile Case"><p>เคสมือถือ</p></a>
+            <a href="search/?search=mobile_case"><img src="assets/images/category/case_mobile.png" alt="Mobile Case"><p>เคสมือถือ</p></a>
+        </section>
+
+    </main>
+    <script src="api/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,95 @@
+#ads a img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fading animation */
+.fade img {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+.mySlides img {display: none;}
+
+#query_by_brand {
+    display: inline-flex;   /* keeps items in a row */
+    overflow-x: auto;       /* enables horizontal scrolling */
+    overflow-y: hidden;     /* hides vertical scrollbar */
+    white-space: nowrap;    /* prevents items from wrapping to next line */
+    width: 100%;            /* optional, make it full width */
+    box-sizing: border-box; /* include padding in width */
+}
+
+#query_by_brand a img {
+    margin: 10px;
+    width: 170px;
+    border: 5px solid lightgray;
+}
+
+h1 {
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#query_by_category {
+    display: flex;
+    gap: 20px;                  /* space between items */
+    padding: 0 20px 20px;        /* left-right + 5px bottom padding */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+}
+
+#query_by_category a {
+    position: relative;
+    flex: 0 0 auto;
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    color: inherit;
+}
+
+#query_by_category a img {
+    display: block;
+    width: 150px;
+    border-radius: 20px;
+    margin-bottom: 20px;       /* space below image */
+}
+
+/* gradient overlay only behind text */
+#query_by_category a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+    border-radius: 0 0 20px 20px;
+    pointer-events: none;
+}
+
+#query_by_category a p {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    width: 100%;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 5px;
+}

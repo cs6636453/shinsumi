@@ -15,7 +15,13 @@
 }
 
 nav {
-    margin: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    margin: 0;
+    padding: 10px;
+    box-shadow: 0 10px 10px gray;
 }
 
 #top_row {
@@ -62,6 +68,19 @@ nav {
     color: gray;
 }
 
+#shop_name a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+#login_btn a {
+    text-decoration: none;
+    color: gray;
+    font-size: 14px;
+}
+
 #search_box {
     width: 100%;
 }
@@ -98,4 +117,12 @@ nav {
     background-color: black;
     color: white;
     border: none;
+}
+
+#search_form input:hover {
+    border: 4px solid black;
+}
+
+#search_form input:focus {
+    border: 4px solid black;
 }
