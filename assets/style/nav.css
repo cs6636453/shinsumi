@@ -14,6 +14,10 @@
     transition: 0.4s;
 }
 
+section#menu_btn, a:hover, a:focus {
+    text-decoration: none;
+}
+
 nav {
     position: sticky;
     top: 0;
