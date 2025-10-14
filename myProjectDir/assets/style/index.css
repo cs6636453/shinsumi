@@ -55,7 +55,6 @@ h1 {
     padding: 0 20px 25px;       /* left-right + bottom padding (gap to scrollbar) */
     overflow-x: auto;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
     box-sizing: border-box;
 }
 
@@ -68,7 +67,6 @@ h1 {
     color: inherit;
     border-radius: 20px;       /* match image corners */
     overflow: hidden;          /* clip gradient inside image */
-    -webkit-tap-highlight-color: transparent; /* remove blue tap highlight */
 }
 
 #query_by_category a img {
@@ -87,11 +85,11 @@ h1 {
     width: 100%;
     height: 40%;
     background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
-    pointer-events: none;
     z-index: 1;   /* behind text */
 }
 
-#query_by_category a p {
+#query_by_category a p,
+#recommend_by_category a p {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -117,7 +115,6 @@ h1 {
     padding: 0 20px 25px;       /* left-right + bottom padding (gap to scrollbar) */
     overflow-x: auto;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
     box-sizing: border-box;
 }
 
@@ -130,7 +127,6 @@ h1 {
     color: inherit;
     border-radius: 20px;
     overflow: hidden;          /* clip gradient inside image */
-    -webkit-tap-highlight-color: transparent;
 }
 
 #recommend_by_category a img {
@@ -149,25 +145,34 @@ h1 {
     width: 100%;
     height: 40%;
     background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
-    pointer-events: none;
     z-index: 1;
 }
 
-#recommend_by_category a p {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    margin: 0;
-    pointer-events: none;
+#bag_category_nav {
+    margin: 10px 20px 20px;
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    scroll-behavior: smooth;
+}
+
+#bag_category_nav a {
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+    border: 3px solid lightgray;
+    padding: 8px 15px;
+    font-size: 12px;
+    display: inline-block;
     white-space: nowrap;
-    width: 100%;
-    max-width: 150px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0 5px;
-    z-index: 2;
+}
+
+#bag_category_nav a.bag_category_active {
+    color: white;
+    background-color: black;
+    border: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
