@@ -1,3 +1,8 @@
+<?php
+    include "lib/connect.php";
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +10,7 @@
     <link rel="icon" href="assets/favicon/xobazjr.ico" type="image/x-icon" />
     <link rel="stylesheet" href="assets/style/nav.css" />
     <link rel="stylesheet" href="assets/style/global.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" rel="stylesheet" />
     <link rel="stylesheet" href="assets/style/index.css">
     <title>Home | We are Gadget Store</title>
 </head>
@@ -50,14 +55,12 @@
         </section>
 
         <section id="query_by_brand">
+            <a href="search/?search=xobazjr"><img src="assets/images/query_by_logo/xobazjr.png" alt="XobazJR Special"></a>
             <a href="search/?search=apple"><img src="assets/images/query_by_logo/apple.png" alt="Apple Brand"></a>
-            <a href="search/?search=muji"><img src="assets/images/query_by_logo/muji.png" alt="Muji Brand"></a>
             <a href="search/?search=samsung"><img src="assets/images/query_by_logo/samsung.png" alt="Samsung Brand"></a>
-            <a href="search/?search=xiaomi"><img src="assets/images/query_by_logo/xiaomi.png" alt="Xiaomi Brand"></a>
         </section>
 
         <h1>หมวดหมู่</h1>
-
         <section id="query_by_category">
             <a href="search/?search=mobile_case"><img src="assets/images/category/case_mobile.png" alt="Mobile Case"><p>เคสมือถือ</p></a>
             <a href="search/?search=mobile_case"><img src="assets/images/category/case_mobile.png" alt="Mobile Case"><p>เคสมือถือ</p></a>
@@ -89,11 +92,100 @@
                 <a href="#" id="backpack">Backpack</a>
                 <a href="#" id="bag_etc">รุ่นอื่น ๆ</a>
             </section>
-            <section id="bag_category_select">
-
+            <section id="bag_category_select" class="bag_scroll">
+                <section class="bag_item">
+                    <a href="#"><img src="assets/images/category/case_mobile.png" alt="my_case"></a>
+                    <p>กระเป๋าไม่ทราบชื่อ</p>
+                    <span class="price"><span class="price_tag">ราคา</span> 500,000 บาท</span>
+                    <hr>
+                    <button>ใส่ตะกร้า</button>
+                </section>
+                <section class="bag_item">
+                    <a href="#"><img src="assets/images/category/case_mobile.png" alt="my_case"></a>
+                    <p>กระเป๋าไม่ทราบชื่อ</p>
+                    <span class="price"><span class="price_tag">ราคา</span> 500,000 บาท</span>
+                    <hr>
+                    <button>ใส่ตะกร้า</button>
+                </section>
+                <section class="bag_item">
+                    <a href="#"><img src="assets/images/category/case_mobile.png" alt="my_case"></a>
+                    <p>กระเป๋าไม่ทราบชื่อ</p>
+                    <span class="price"><span class="price_tag">ราคา</span> 500,000 บาท</span>
+                    <hr>
+                    <button>ใส่ตะกร้า</button>
+                </section>
+                <section class="bag_item">
+                    <a href="#"><img src="assets/images/category/case_mobile.png" alt="my_case"></a>
+                    <p>กระเป๋าไม่ทราบชื่อ</p>
+                    <span class="price"><span class="price_tag">ราคา</span> 500,000 บาท</span>
+                    <hr>
+                    <button>ใส่ตะกร้า</button>
+                </section>
+                <section class="bag_item">
+                    <a href="#"><img src="assets/images/category/case_mobile.png" alt="my_case"></a>
+                    <p>กระเป๋าไม่ทราบชื่อ</p>
+                    <span class="price"><span class="price_tag">ราคา</span> 500,000 บาท</span>
+                    <hr>
+                    <button>ใส่ตะกร้า</button>
+                </section>
             </section>
         </section>
 
+        <h1>เคสมือถือ</h1>
+        <section id="case_category">
+            <section id="case_category_nav">
+                <a href="#" class="case_category_active" id="case_iphone16">iPhone 16</a>
+                <a href="#" id="case_ss_s25_u">Galaxy S25 Ultra</a>
+                <a href="#" id="case_etc">รุ่นอื่น ๆ</a>
+            </section>
+            <section id="case_category_select" class="bag_scroll">
+                <section class="bag_item">
+                    <a href="#"><img src="assets/images/category/case_mobile.png" alt="my_case"></a>
+                    <p>กระเป๋าไม่ทราบชื่อ</p>
+                    <span class="price"><span class="price_tag">ราคา</span> 500,000 บาท</span>
+                    <hr>
+                    <button>ใส่ตะกร้า</button>
+                </section>
+                <section class="bag_item">
+                    <a href="#"><img src="assets/images/category/case_mobile.png" alt="my_case"></a>
+                    <p>กระเป๋าไม่ทราบชื่อ</p>
+                    <span class="price"><span class="price_tag">ราคา</span> 500,000 บาท</span>
+                    <hr>
+                    <button>ใส่ตะกร้า</button>
+                </section>
+                <section class="bag_item">
+                    <a href="#"><img src="assets/images/category/case_mobile.png" alt="my_case"></a>
+                    <p>กระเป๋าไม่ทราบชื่อ</p>
+                    <span class="price"><span class="price_tag">ราคา</span> 500,000 บาท</span>
+                    <hr>
+                    <button>ใส่ตะกร้า</button>
+                </section>
+                <section class="bag_item">
+                    <a href="#"><img src="assets/images/category/case_mobile.png" alt="my_case"></a>
+                    <p>กระเป๋าไม่ทราบชื่อ</p>
+                    <span class="price"><span class="price_tag">ราคา</span> 500,000 บาท</span>
+                    <hr>
+                    <button>ใส่ตะกร้า</button>
+                </section>
+                <section class="bag_item">
+                    <a href="#"><img src="assets/images/category/case_mobile.png" alt="my_case"></a>
+                    <p>กระเป๋าไม่ทราบชื่อ</p>
+                    <span class="price"><span class="price_tag">ราคา</span> 500,000 บาท</span>
+                    <hr>
+                    <button>ใส่ตะกร้า</button>
+                </section>
+            </section>
+        </section>
+
+        <section id="how_to_order">
+            <span class="material-symbols-outlined icon_tips">shopping_cart</span>
+            <span class="tips_as_text">วิธีการสั่งซื้อ</span>
+        </section>
+
+        <section id="check_status">
+            <span class="material-symbols-outlined icon_tips">local_shipping</span>
+            <span class="tips_as_text">ตรวจสอบสถานะ</span>
+        </section>
     </main>
     <script src="api/index.js"></script>
 </body>

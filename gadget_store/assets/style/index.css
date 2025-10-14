@@ -173,6 +173,70 @@ h1 {
     border: none;
 }
 
+#case_category_nav {
+    margin: 10px 20px 20px;
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    scroll-behavior: smooth;
+}
+
+#case_category_nav a {
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+    border: 3px solid lightgray;
+    padding: 8px 15px;
+    font-size: 12px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#case_category_nav a.case_category_active {
+    color: white;
+    background-color: black;
+    border: none;
+}
+
+#how_to_order, #check_status {
+    /* --- Layout & Dimensions --- */
+    /* FIX: Sets top margin to 10px, bottom to 20px, and left/right to 'auto' */
+    margin: 10px 20px 20px 20px;
+
+    /* Define the width of the card itself */
+    width: calc(100% - 40px);
+    max-width: 400px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* --- Flexbox Centering (Inside the box) --- */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* This keeps the icon/text group centered INSIDE the 90% wide box */
+
+    /* --- Visual Styles --- */
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.icon_tips {
+    margin-right: 15px;
+    font-size: 32px;
+}
+
+.tips_as_text {
+    font-size: 28px;
+}
+
 ::-webkit-scrollbar {
     display: none;
+}
+
+.icon_tips {
+    font-variation-settings:
+            'FILL' 1,     /* Solid fill */
+            'wght' 400,   /* Regular weight */
+            'GRAD' 0,     /* No special gradient */
+            'opsz' 48;    /* Large optical size */
+    font-size: 72px; /* Set a large font size to make 'opsz 48' visible */
 }
