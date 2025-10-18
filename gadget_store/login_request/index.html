@@ -28,23 +28,43 @@
 
         <!--ชื่อร้าน-->
         <section id="shop_name">
-            <a href="#">GADGET STORE</a>
+            <a href="../">GADGET STORE</a>
         </section>
 
+    </div>
+
+    <div id="bottom_row">
+        <!--แถบค้นหา-->
+        <section id="search_box">
+            <form action="search/" id="search_form">
+                <label for="search_param"></label><input type="text" name="search" placeholder="ค้นหาสินค้า..." id="search_param">
+                <button type="submit"><span class="material-symbols-outlined">search</span></button>
+            </form>
+        </section>
     </div>
 </nav>
 <main>
     <h1>เข้าสู่ระบบ/สมัครสมาชิก</h1>
-    <form action="request.php" method="POST">
+    <form action="" method="POST" onsubmit="return false;">
         <label for="username">Username</label><br>
-        <input type="text" id="username" name="username"><br><br>
+        <input type="text" id="username" name="username" required><br><br>
         <label for="password">Password</label><br>
-        <input type="password" id="password" name="password"><br><br>
-        <input type="checkbox" id="remember_me"
-               name="remember_me" value="true">
-        <label for="remember_me">จำชื่อผู้ใช้</label><br><br>
-        <input type="submit" value="เข้าสู่ระบบ">
+        <input type="password" id="password" name="password" required><br><br>
+<!--        <input type="checkbox" id="remember_me"-->
+<!--               name="remember_me" value="true">-->
+<!--        <label for="remember_me">จำชื่อผู้ใช้</label><br><br>-->
+        <input type="submit" id="submit"
+               value="Log in" onclick="send()"><br>
+        <div id="error"></div>
+        <a href="../registration/" id="register">Sign up</a>
     </form>
 </main>
+<footer>
+    <h1>TEL 095-484-9802</h1>
+    <p>9:00 - 17:00 จันทร์-ศุกร์</p>
+    <br>
+    <b>GADGET STORE</b>
+</footer>
+<script src="../scripts/login.js"></script>
 </body>
 </html>

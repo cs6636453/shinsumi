@@ -1,0 +1,142 @@
+<?php
+    include "lib/connect.php";
+    session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" href="../assets/favicon/xobazjr.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../assets/style/nav.css" />
+    <link rel="stylesheet" href="../assets/style/global.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/style/index.css">
+    <title>Home | We are Gadget Store</title>
+    <link rel="stylesheet" href="../assets/style/login_form.css">
+</head>
+<body>
+<nav>
+
+    <div id="top_row">
+        <!--ปุ่มเลือกเมนู-->
+        <section class="container" id="menu_btn" onclick="animateMenuButton(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </section>
+
+        <!--ชื่อร้าน-->
+        <section id="shop_name">
+            <a href="../">GADGET STORE</a>
+        </section>
+
+    </div>
+
+    <div id="bottom_row">
+        <!--แถบค้นหา-->
+        <section id="search_box">
+            <form action="search/" id="search_form">
+                <label for="search_param"></label><input type="text" name="search" placeholder="ค้นหาสินค้า..." id="search_param">
+                <button type="submit"><span class="material-symbols-outlined">search</span></button>
+            </form>
+        </section>
+    </div>
+</nav>
+<main>
+    <h1>สมัครสมาชิก</h1>
+    <form action="" method="POST" onsubmit="return false;">
+        <label for="username">Username</label><br>
+        <input type="text" id="username" name="username" required onkeyup="checkUsername()"><br>
+        <div id="erroruse"></div><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="cf_password">Confirm Password</label><br>
+        <input type="password" id="cf_password" name="password" onkeyup="check_password()" required><br>
+        <div id="errorpass"></div><br>
+        <label for="first_name">ชื่อ</label><br>
+        <input type="text" id="first_name" name="first_name" required><br>
+
+        <label for="last_name">นามสกุล</label><br>
+        <input type="text" id="last_name" name="last_name" required><br>
+
+        <label for="address">Address</label><br>
+        <textarea id="address" name="address" required></textarea><br>
+
+        <label for="postal">Postal Code</label><br>
+        <input type="text" id="postal" name="postal"
+               onkeyup="getDataFromPostal()"
+               pattern="[0-9]{5}" required><br>
+
+        <label for="province">Province</label><br>
+        <select name="province" id="province" required>
+            <option>กรุณากรอกรหัสไปรษณีย์</option>
+        </select><br>
+
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="tel">Tel.</label><br>
+        <input type="text" id="tel" name="tel" required
+            pattern="[0-9]{9,10}"><br><br>
+
+        <input type="submit" id="submit"
+               value="Sign up" onclick="send()"><br>
+        <div id="error"></div>
+        <a href="../login_request/" id="back_to_login">Already signed up?</a>
+    </form>
+</main>
+<footer>
+    <h1>TEL 095-484-9802</h1>
+    <p>9:00 - 17:00 จันทร์-ศุกร์</p>
+    <br>
+    <b>GADGET STORE</b>
+</footer>
+</body>
+<script>
+    function getDataFromPostal() {
+        const xhr = new XMLHttpRequest();
+        const url = 'https://raw.githubusercontent.com/kongvut/thai-province-data/refs/heads/master/api/latest/sub_district_with_district_and_province.json';
+        xhr.onload = function() {
+            if (this.status === 200) {
+                const objectData = JSON.parse(this.responseText);
+                const postal = document.getElementById('postal').value;
+                let province = document.getElementById('province');
+                province.innerHTML = '';
+                for (let i = 0; i < objectData.length; i++) {
+                    let zip_code = objectData[i].zip_code;
+                    if (zip_code.toString().includes(postal)) {
+                        let option = document.createElement("option");
+                        option.innerHTML = objectData[i].district.province.name_th + " > " +
+                            objectData[i].district.name_th + " > " + objectData[i].name_th;
+                        option.value = objectData[i].district.province.name_th + ", " +
+                            objectData[i].district.name_th + ", " + objectData[i].name_th;
+                        province.appendChild(option);
+                    }
+                }
+            } else {
+                console.error('Error fetching data. Status:', this.status);
+            }
+        };
+        xhr.onerror = function() {
+            console.error("Request failed. Check your network connection.");
+        };
+        xhr.open('GET', url, true);
+        xhr.send();
+    }
+
+    function check_password() {
+        var password = document.getElementById("password").value;
+        var cf_password = document.getElementById("cf_password").value;
+
+        if (password !== cf_password) {
+            document.getElementById("errorpass").innerHTML = "รหัสผ่านไม่ตรงกัน";
+        } else {
+            document.getElementById("errorpass").innerHTML = "";
+        }
+    }
+</script>
+<script src="../scripts/register.js"></script>
+
+</html>

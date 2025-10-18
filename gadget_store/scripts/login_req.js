@@ -13,7 +13,7 @@ function showResult() {
     console.log(xmlHttp.responseText);
 
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-        document.getElementById("login").innerHTML = xmlHttp.responseText;
+        document.getElementById("login_btn").innerHTML = xmlHttp.responseText;
     }
 }
 
