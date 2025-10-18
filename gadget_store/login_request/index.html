@@ -1,0 +1,50 @@
+<?php
+    include "lib/connect.php";
+    session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" href="../assets/favicon/xobazjr.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../assets/style/nav.css" />
+    <link rel="stylesheet" href="../assets/style/global.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/style/index.css">
+    <title>Home | We are Gadget Store</title>
+    <link rel="stylesheet" href="../assets/style/login_form.css">
+</head>
+<body>
+<nav>
+
+    <div id="top_row">
+        <!--ปุ่มเลือกเมนู-->
+        <section class="container" id="menu_btn" onclick="animateMenuButton(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </section>
+
+        <!--ชื่อร้าน-->
+        <section id="shop_name">
+            <a href="#">GADGET STORE</a>
+        </section>
+
+    </div>
+</nav>
+<main>
+    <h1>เข้าสู่ระบบ/สมัครสมาชิก</h1>
+    <form action="request.php" method="POST">
+        <label for="username">Username</label><br>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="checkbox" id="remember_me"
+               name="remember_me" value="true">
+        <label for="remember_me">จำชื่อผู้ใช้</label><br><br>
+        <input type="submit" value="เข้าสู่ระบบ">
+    </form>
+</main>
+</body>
+</html>

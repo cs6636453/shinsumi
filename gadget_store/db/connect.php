@@ -9,4 +9,5 @@ try {
 catch (PDOException $e) {
     echo "Connection failed: (read below)<br>" . $e -> getMessage();
 }
+session_start();
 ?>

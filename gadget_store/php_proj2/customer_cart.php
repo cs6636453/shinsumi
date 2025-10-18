@@ -84,5 +84,5 @@
         ?>
     <h4>ราคารวม: <?=$total?></h4>
 </main>
-<script src="../api/index.js"></script>
+<script src="../scripts/index.js"></script>
 </body>

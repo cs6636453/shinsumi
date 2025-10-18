@@ -78,5 +78,5 @@ GROUP BY o.ord_id;");
             }
         ?>
 </main>
-<script src="../api/index.js"></script>
+<script src="../scripts/index.js"></script>
 </body>

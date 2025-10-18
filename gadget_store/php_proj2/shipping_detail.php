@@ -128,5 +128,5 @@
     <p><?=$payment?></p>
         </section>
 </main>
-<script src="../api/index.js"></script>
+<script src="../scripts/index.js"></script>
 </body>
