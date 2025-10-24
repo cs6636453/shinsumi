@@ -47,13 +47,13 @@
     <h1>สมัครสมาชิก</h1>
     <form action="" method="POST" onsubmit="return false;">
         <label for="username">Username</label><br>
-        <input type="text" id="username" name="username" required onkeyup="checkUsername()"><br>
+        <input type="text" id="username" name="username" required onkeyup="checkUsername()">
         <div id="erroruse"></div><br>
         <label for="password">Password</label><br>
         <input type="password" id="password" name="password" required><br>
 
         <label for="cf_password">Confirm Password</label><br>
-        <input type="password" id="cf_password" name="password" onkeyup="check_password()" required><br>
+        <input type="password" id="cf_password" name="password" onkeyup="check_password()" required>
         <div id="errorpass"></div><br>
         <label for="first_name">ชื่อ</label><br>
         <input type="text" id="first_name" name="first_name" required><br>
@@ -79,11 +79,11 @@
 
         <label for="tel">Tel.</label><br>
         <input type="text" id="tel" name="tel" required
-            pattern="[0-9]{9,10}"><br><br>
+            pattern="[0-9]{9,10}"><br>
 
         <input type="submit" id="submit"
-               value="Sign up" onclick="send()"><br>
-        <div id="error"></div>
+               value="Sign up" onclick="send()">
+        <div id="error"></div><br>
         <a href="../login_request/" id="back_to_login">Already signed up?</a>
     </form>
 </main>
@@ -94,49 +94,6 @@
     <b>GADGET STORE</b>
 </footer>
 </body>
-<script>
-    function getDataFromPostal() {
-        const xhr = new XMLHttpRequest();
-        const url = 'https://raw.githubusercontent.com/kongvut/thai-province-data/refs/heads/master/api/latest/sub_district_with_district_and_province.json';
-        xhr.onload = function() {
-            if (this.status === 200) {
-                const objectData = JSON.parse(this.responseText);
-                const postal = document.getElementById('postal').value;
-                let province = document.getElementById('province');
-                province.innerHTML = '';
-                for (let i = 0; i < objectData.length; i++) {
-                    let zip_code = objectData[i].zip_code;
-                    if (zip_code.toString().includes(postal)) {
-                        let option = document.createElement("option");
-                        option.innerHTML = objectData[i].district.province.name_th + " > " +
-                            objectData[i].district.name_th + " > " + objectData[i].name_th;
-                        option.value = objectData[i].district.province.name_th + ", " +
-                            objectData[i].district.name_th + ", " + objectData[i].name_th;
-                        province.appendChild(option);
-                    }
-                }
-            } else {
-                console.error('Error fetching data. Status:', this.status);
-            }
-        };
-        xhr.onerror = function() {
-            console.error("Request failed. Check your network connection.");
-        };
-        xhr.open('GET', url, true);
-        xhr.send();
-    }
-
-    function check_password() {
-        var password = document.getElementById("password").value;
-        var cf_password = document.getElementById("cf_password").value;
-
-        if (password !== cf_password) {
-            document.getElementById("errorpass").innerHTML = "รหัสผ่านไม่ตรงกัน";
-        } else {
-            document.getElementById("errorpass").innerHTML = "";
-        }
-    }
-</script>
 <script src="../scripts/register.js"></script>
-
+<script src="../scripts/index.js"></script>
 </html>
