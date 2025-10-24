@@ -2,17 +2,49 @@ function animateMenuButton(el) {
     el.classList.toggle("on_change");
 }
 
-let slideIndex = 0;
-showSlides();
+// --- Find your existing animateMenuButton function... ---
+function animateMenuButton(button) {
+    // This line is probably already in your function:
+    button.classList.toggle("change");
 
-function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+    // --- ADD THESE LINES: ---
+    const sideNav = document.getElementById("side-nav-menu");
+    const overlay = document.getElementById("side-nav-overlay");
+
+    if (sideNav && overlay) {
+        sideNav.classList.toggle("open");
+        overlay.classList.toggle("open");
     }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}
-    slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 5000); // Change image every 2 seconds
 }
+
+// --- ADD THIS NEW CODE (ideally inside a 'DOMContentLoaded' listener) ---
+document.addEventListener("DOMContentLoaded", function() {
+
+    // 1. Logic to close the menu when clicking the overlay
+    const overlay = document.getElementById("side-nav-overlay");
+    if (overlay) {
+        overlay.addEventListener("click", function() {
+            // Find the button and menu again to close them
+            document.getElementById("menu_btn").classList.remove("change");
+            document.getElementById("side-nav-menu").classList.remove("open");
+            overlay.classList.remove("open");
+        });
+    }
+
+    // 2. Logic for the accordion buttons inside the menu
+    const accordionBtns = document.querySelectorAll(".nav-item-button");
+
+    accordionBtns.forEach(btn => {
+        btn.addEventListener("click", function() {
+            // Toggle 'active' class on the button (for the + icon)
+            this.classList.toggle("active");
+
+            // Find the next element (which is the .sub-menu)
+            const subMenu = this.nextElementSibling;
+            if (subMenu && subMenu.classList.contains("sub-menu")) {
+                subMenu.classList.toggle("open");
+            }
+        });
+    });
+
+});

@@ -67,4 +67,204 @@ footer {
     color: white;
 }
 
+.account-container {
+    position: relative;
+    display: inline-block;
+}
 
+.account-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Place it right below the icon */
+    right: 0; /* Align to the right */
+    text-align: left;
+    background-color: white;
+    min-width: 220px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.account-menu.show {
+    display: block;
+}
+
+div.account-menu#account-popup .menu-header {
+    padding: 12px 16px;
+    font-weight: bold;
+    color: black;
+    font-size: 0.9em;
+    background-color: #f9f9f9;
+}
+
+div.account-menu#account-popup a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1em;
+}
+
+.account-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+.account-menu .menu-divider {
+    height: 1px;
+    margin: 4px 0;
+    background-color: #eee;
+}
+
+a.account-header {
+    font-weight: bold;
+}
+
+/* --- Add this to your nav.css file --- */
+
+/* 1. The Dark Overlay */
+#side-nav-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1999; /* Below the menu, above everything else */
+}
+
+#side-nav-overlay.open {
+    display: block;
+}
+
+/* 2. The Side Menu Container */
+.side-nav {
+    height: 100%;
+    width: 280px; /* You can adjust this width */
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: #333; /* Dark background */
+    overflow-x: hidden;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%); /* Hidden off-screen to the left */
+    color: white;
+}
+
+/* --- Light Theme CSS for Side Navigation Menu --- */
+
+/* 1. The Dark Overlay (This stays the same) */
+#side-nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+}
+
+#side-nav-overlay.open {
+    display: block;
+}
+
+/* 2. The Side Menu Container */
+.side-nav {
+    height: 100%;
+    width: 280px;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: #ffffff; /* Light background */
+    overflow-x: hidden;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+    color: #333; /* Dark text */
+    border-right: 1px solid #ddd; /* Add a border */
+}
+
+.side-nav.open {
+    transform: translateX(0);
+}
+
+/* 3. Menu Header */
+.side-nav-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: #f9f9f9; /* Light header background */
+    color: #6a1b9a; /* Purple color, darker for readability */
+    border-bottom: 1px solid #eee;
+}
+
+/* 4. Menu List Styling */
+.side-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    background: none;
+    border: none;
+    color: #333; /* Dark text */
+    text-align: left;
+    font-size: 1em;
+    cursor: pointer;
+    border-bottom: 1px solid #eee; /* Light divider */
+}
+
+.nav-item-button:hover {
+    background-color: #f5f5f5; /* Light hover */
+}
+
+/* 5. Sub-menu (Accordion) */
+.sub-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f9f9f9; /* Light background for sub-items */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.sub-menu.open {
+    max-height: 500px;
+}
+
+.sub-menu li a {
+    display: block;
+    padding: 12px 16px 12px 32px;
+    color: #555; /* Mid-dark text */
+    text-decoration: none;
+}
+
+.sub-menu li a:hover {
+    color: #000; /* Black text on hover */
+    background-color: #eee; /* Light gray hover */
+}
+
+/* 6. Plus Icon Animation */
+.plus-icon {
+    transition: transform 0.2s;
+}
+
+.nav-item-button.active .plus-icon {
+    transform: rotate(45deg);
+}
+
+/* --- End of Light Theme CSS --- */

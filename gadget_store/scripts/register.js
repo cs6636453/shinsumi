@@ -1,20 +1,23 @@
-var xmlHttp;
+let xml2;
+let xml3;
 
 function checkUsername() {
     document.getElementById('erroruse').innerHTML = 'กำลังตรวจสอบ username นี้ กรุณารอสักครู่...';
     document.getElementById('erroruse').style.color = 'gray';
-    xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = showResult2;
-    var username = document.getElementById("username").value;
+    xml2 = new XMLHttpRequest();
+    xml2.onreadystatechange = showResultUsername;
+    let username = document.getElementById("username").value;
 
-    var url = "../scripts/checkuser.php?username=" + username;
-    xmlHttp.open("GET", url);
-    xmlHttp.send();
+    let params = "username=" + encodeURIComponent(username);
+    let url = "scripts/checkuser.php";
+    xml2.open("POST", url);
+    xml2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xml2.send(params);
 }
-function showResult2() {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-        console.log(xmlHttp.responseText);
-        if (xmlHttp.responseText.includes("username_existed")) {
+function showResultUsername() {
+    if (xml2.readyState == 4 && xml2.status == 200) {
+        console.log(xml2.responseText);
+        if (xml2.responseText.includes("username_existed")) {
             document.getElementById('erroruse').innerHTML = 'พบ username นี้แล้วในระบบ';
             document.getElementById('erroruse').style.color = 'red';
         } else {
@@ -25,14 +28,14 @@ function showResult2() {
     }
 }
 
-function send() {
+function send_register() {
     document.getElementById("submit").value = "กำลังลงทะเบียนให้ท่าน โปรดรอสักครู่...";
-    xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = showResult;
+    xml3 = new XMLHttpRequest();
+    xml3.onreadystatechange = showResultFinal;
 
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    var cf_password = document.getElementById("cf_password").value;
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let cf_password = document.getElementById("cf_password").value;
 
     if (password !== cf_password) {
         document.getElementById("errorpass").innerHTML = "รหัสผ่านไม่ตรงกัน";
@@ -41,16 +44,13 @@ function send() {
         return;
     }
 
-    var first_name = document.getElementById("first_name").value;
-    var last_name = document.getElementById("last_name").value;
-    var address = document.getElementById("address").value;
-    var postal = document.getElementById("postal").value;
-    var province = document.getElementById("province").value;
-    var email = document.getElementById("email").value;
-    var tel = document.getElementById("tel").value;
-
-    console.log(username + " " + password + " " + cf_password + " " + first_name + " "
-    + last_name + " " + address + " " + postal + " " + province + " " + email + " " + tel);
+    let first_name = document.getElementById("first_name").value;
+    let last_name = document.getElementById("last_name").value;
+    let address = document.getElementById("address").value;
+    let postal = document.getElementById("postal").value;
+    let province = document.getElementById("province").value;
+    let email = document.getElementById("email").value;
+    let tel = document.getElementById("tel").value;
 
     if (!username || !password || !cf_password || !first_name || !last_name ||
         !address || !postal || !province || !email || !tel) {
@@ -59,22 +59,24 @@ function send() {
         return;
     }
 
-    var url= "../scripts/register.php?username="+username+
-             "&password="+password+"&cf_password="+cf_password+
-             "&first_name="+first_name+"&last_name="+last_name+
-             "&address="+address+"&postal="+postal+
-             "&province="+province+"&email="+email+"&tel="+tel;
+    let params = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password) +
+                 "&cf_password=" + encodeURIComponent(cf_password) + "&first_name=" + encodeURIComponent(first_name) +
+                 "&last_name=" + encodeURIComponent(last_name) + "&address=" + encodeURIComponent(address) +
+                 "&postal=" + encodeURIComponent(postal) + "&province=" + encodeURIComponent(province) +
+                 "&email=" + encodeURIComponent(email) + "&tel=" + encodeURIComponent(tel);
 
-    xmlHttp.open("GET", url);
-    xmlHttp.send();
+    let url= "../scripts/register.php";
+    xml3.open("POST", url);
+    xml3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xml3.send(params);
 }
-function showResult() {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-        console.log(xmlHttp.responseText);
-        if (xmlHttp.responseText.includes("username_existed")) {
+function showResultFinal() {
+    if (xml3.readyState == 4 && xml3.status == 200) {
+        console.log(xml3.responseText);
+        if (xml3.responseText.includes("username_existed")) {
             document.getElementById('error').innerHTML = 'พบ username นี้แล้วในระบบ';
             document.getElementById("submit").value = "Sign up";
-        } else if (xmlHttp.responseText.includes("password_mismatch")) {
+        } else if (xml3.responseText.includes("password_mismatch")) {
             document.getElementById('error').innerHTML = 'รหัสผ่านไม่ตรงกัน';
             document.getElementById("submit").value = "Sign up";
         } else {
@@ -83,56 +85,11 @@ function showResult() {
         }
     }
 }
-function getDataFromPostal() {
-    let option = document.createElement("option");
-    const postal = document.getElementById('postal').value;
-    if (postal.length !== 5) {
-        option.innerHTML = "กรุณากรอกรหัสไปรษณีย์"
-        document.getElementById('province').innerHTML = "";
-        document.getElementById('province').appendChild(option);
-        return;
-    }
-    option.innerHTML = "กำลังค้นหาข้อมูล..."
-    document.getElementById('province').innerHTML = "";
-    document.getElementById('province').appendChild(option);
-    console.log("Postal code detected")
-    xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = convertPostal;
-    const url = 'https://raw.githubusercontent.com/kongvut/thai-province-data/refs/heads/master/api/latest/sub_district_with_district_and_province.json';
-    xmlHttp.open('GET', url);
-    xmlHttp.send();
-}
 
-function convertPostal() {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-        const objectData = JSON.parse(this.responseText);
-        const postal = document.getElementById('postal').value;
-        let province = document.getElementById('province');
-        let option = document.createElement("option");
-        let foundMatch = false;
-        document.getElementById('province').innerHTML = "";
-        for (let i = 0; i < objectData.length; i++) {
-            let zip_code = objectData[i].zip_code;
-            let option2 = document.createElement("option");
-            if (zip_code.toString().includes(postal)) {
-                foundMatch = true;
-                option2.innerHTML = objectData[i].district.province.name_th + " > " + objectData[i].district.name_th + " > " + objectData[i].name_th;
-                option2.value = objectData[i].district.province.name_th + ", " +
-                    objectData[i].district.name_th + ", " + objectData[i].name_th;
-                province.appendChild(option2);
-            }
-        }
-        if (!foundMatch) {
-            option.innerHTML = "ไม่พบข้อมูล";
-            province.innerHTML = option;
-            document.getElementById('province').appendChild(option);
-        }
-    }
-}
 
 function check_password() {
-    var password = document.getElementById("password").value;
-    var cf_password = document.getElementById("cf_password").value;
+    let password = document.getElementById("password").value;
+    let cf_password = document.getElementById("cf_password").value;
 
     if (password !== cf_password) {
         document.getElementById("errorpass").innerHTML = "รหัสผ่านไม่ตรงกัน";

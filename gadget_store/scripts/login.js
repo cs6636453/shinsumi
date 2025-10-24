@@ -1,22 +1,24 @@
-var xmlHttp;
+let xml;
 
-function send() {
+function send3() {
     document.getElementById("submit").value = "Logging you in...";
-    xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = showResult;
+    xml = new XMLHttpRequest();
+    xml.onreadystatechange = showResult3;
 
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
 
-    var url= "../scripts/login.php?username="+username+"&password="+password;
+    let params = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password);
+    let url= "../scripts/login.php";
 
-    xmlHttp.open("GET", url);
-    xmlHttp.send();
+    xml.open("POST", url);
+    xml.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xml.send(params);
 }
-function showResult() {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-        console.log(xmlHttp.responseText);
-        if (xmlHttp.responseText.includes("Error")) {
+function showResult3() {
+    if (xml.readyState == 4 && xml.status == 200) {
+        console.log(xml.responseText);
+        if (xml.responseText.includes("Error")) {
             document.getElementById('error').innerHTML = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
             document.getElementById("submit").value = "Log in";
         } else {

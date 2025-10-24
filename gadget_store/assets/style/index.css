@@ -224,6 +224,12 @@ h1 {
     font-size: 32px;
 }
 
+.top_right_nav {
+    margin-right: 10px;
+    font-size: 32px;
+    color: black;
+}
+
 .tips_as_text {
     font-size: 28px;
 }
