@@ -1,5 +1,15 @@
-function animateMenuButton(el) {
-    el.classList.toggle("on_change");
+function animateMenuButton(button) {
+    // This line is probably already in your function:
+    button.classList.toggle("change");
+
+    // --- ADD THESE LINES: ---
+    const sideNav = document.getElementById("side-nav-menu");
+    const overlay = document.getElementById("side-nav-overlay");
+
+    if (sideNav && overlay) {
+        sideNav.classList.toggle("open");
+        overlay.classList.toggle("open");
+    }
 }
 
 // --- ADD THIS NEW CODE (ideally inside a 'DOMContentLoaded' listener) ---
