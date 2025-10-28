@@ -42,7 +42,8 @@ body {
 
 .bag_item p {
     font-size: 12px;
-    height: 60px;
+    height: 65px;
+    width: 100px;
     margin-top: 0;
     margin-bottom: 0;
 }

@@ -6,11 +6,11 @@ let bag = [
 ]
 
 function bag_index(i) {
+    document.getElementById("bag_category_select").innerHTML = "<img src='assets/images/loading.gif' width='30px' height='30px' alt='loading'>"
     let bagId = "bag_" + i;
     xml_bagQuery = new XMLHttpRequest();
     xml_bagQuery.onreadystatechange = getBagResult;
-    let url = "scripts/category_bag.php";
-    console.log(bag[i]);
+    let url = "scripts/category.php";
     let params = "query=" + encodeURIComponent(bag[i]);
     xml_bagQuery.open("POST", url);
     xml_bagQuery.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -39,11 +39,11 @@ let case_ = [
 ]
 
 function case_index(i) {
+    document.getElementById("case_category_select").innerHTML = "<img src='assets/images/loading.gif' width='30px' height='30px' alt='loading'>"
     let caseId = "case_" + i;
     xml_caseQuery = new XMLHttpRequest();
     xml_caseQuery.onreadystatechange = getCaseResult;
-    let url = "scripts/category_case.php";
-    console.log(case_[i]);
+    let url = "scripts/category.php";
     let params = "query=" + encodeURIComponent(case_[i]);
     xml_caseQuery.open("POST", url);
     xml_caseQuery.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");

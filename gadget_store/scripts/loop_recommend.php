@@ -5,6 +5,6 @@
     $stmt -> execute();
 
     while ($row = $stmt -> fetch()) {
-        echo '<a href="search/?search='.$row['pname'].'"><img src="assets/images/products/'.$row["pid"].'" alt="categories"><p>'.$row['pname'].'</p></a>';
+        echo '<a href="prod/index.php?id='.$row['pid'].'"><img src="assets/images/products/'.$row["pid"].'" alt="categories"><p>'.$row['pname'].'</p></a>';
     }
 ?>
