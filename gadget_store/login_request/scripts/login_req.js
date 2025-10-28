@@ -5,7 +5,7 @@ function send() {
     xmlHttp.onreadystatechange = showResult;
 
     // This is the PHP file from Step 1
-    var url = "scripts/login_check.php";
+    let url = "scripts/login_check.php";
 
     xmlHttp.open("POST", url);
     xmlHttp.send();
