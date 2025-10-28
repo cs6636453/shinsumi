@@ -266,7 +266,7 @@
     </div>
 
     <div class="add-order">
-        <a href="../cart/add.php?id=<?=$_GET['id']?>&count=1" class="btn btn-secondary">
+        <a href="../cart/add.php?id=<?=$_GET['id']?>&count=1" id="add-to-cart-link" class="btn btn-secondary">
             ใส่ตะกร้า
         </a>
     </div>

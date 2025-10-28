@@ -22,7 +22,7 @@
             echo "<span class='price'><span class='price_tag'>ราคา</span> ".$row["price"]." บาท</span>";
         }
         echo "<hr>";
-        echo "<a href='cart/add.php?id=".$row["pid"]."' class='add_to_cart'>ใส่ตะกร้า</a>";
+        echo "<a href='cart/add.php?id=".$row["pid"]."&count=1' class='add_to_cart'>ใส่ตะกร้า</a>";
         echo "</section>";
     }
 ?>
