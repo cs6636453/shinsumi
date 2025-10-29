@@ -5,6 +5,7 @@ function queryXMLfunc() {
     queryXML.onreadystatechange = showQueryXMLfunc;
     const urlParams = new URLSearchParams(window.location.search);
     const searchTerm = urlParams.get('search');
+    document.getElementById("search_param").value = searchTerm;
     let params = "search=" + encodeURIComponent(searchTerm);
     let url = "query.php";
     queryXML.open("POST", url);
