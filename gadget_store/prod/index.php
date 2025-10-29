@@ -135,8 +135,10 @@
         echo '<h3><span style="color: gray;">ราคา </span>'.$row["price"].' บาท</h3>';
     }
     ?>
-    <label for="number">จำนวน</label><br>
 
+    <?php
+    if ($row["stock"] >= 1) {
+    ?><label for="number">จำนวน</label><br>
     <div class="quantity-input">
         <input type="button" class="qt-minus" value="-">
         <input type="number" id="number" class="qt-number" value="1" min="1" readonly>
@@ -148,6 +150,9 @@
             ใส่ตะกร้า
         </a>
     </div>
+    <?php
+    }
+    ?>
 </main>
 <footer>
     <h1>TEL 095-484-9802</h1>
