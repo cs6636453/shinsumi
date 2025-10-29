@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assets/style/global.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/style/index.css">
-    <title>Dashboard | We are Gadget Store</title>
+    <title>GS MyAdmin Panel</title>
     <link rel="stylesheet" href="../assets/style/login_form.css">
     <link rel="stylesheet" href="inner.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
@@ -24,7 +24,7 @@
 
         <!--ชื่อร้าน-->
         <section id="shop_name">
-            <a href="../">GADGET STORE DASHBOARD</a>
+            <a href="./">GS MyAdmin Dashboard</a>
         </section>
 
         <!--ปุ่ม Login-->
@@ -88,7 +88,7 @@
 </div>
 <main class="myMain cart-page-container">
 
-    <h1>ยินดีต้อนรับ พงศ์ศิริ</h1>
+    <h1 id="welcome"></h1>
 
     <ul id="nav">
         <li onclick="avgClick(0)" id="day" class="active">1 วันที่ผ่านมา</li>
@@ -104,7 +104,7 @@
         </div>
         <hr>
         <div class="detail">
-            <h4>0.00</h4><p>บาท</p>
+            <h4 id="total_sale_price"></h4><p>บาท</p>
         </div>
     </section>
 
@@ -115,7 +115,7 @@
         </div>
         <hr>
         <div class="detail">
-            <h4>1000</h4><p>ออเดอร์</p>
+            <h4 id="total_orders"></h4><p>ออเดอร์</p>
         </div>
     </section>
 
@@ -126,7 +126,7 @@
         </div>
         <hr>
         <div class="detail">
-            <h4>1000</h4><p>คน</p>
+            <h4 id="newcus"></h4><p>คน</p>
         </div>
     </section>
 
@@ -151,20 +151,7 @@
             <h2>สินค้าขายดี</h2>
         </div>
         <hr>
-        <div class="best_detail">
-            <h6>iPhone 15 Pro</h6>
-            <span>
-                <p>ขายแล้ว: 150</p><p class="red">คงเหลือ: 5</p>
-            </span>
-            <hr>
-        </div>
-        <div class="best_detail">
-            <h6>iPhone 15 Pro</h6>
-            <span>
-                <p>ขายแล้ว: 150</p><p class="red">คงเหลือ: 5</p>
-            </span>
-            <hr>
-        </div>
+
     </section>
 
     <section id="last_orders">
@@ -172,7 +159,8 @@
             <h2>คำสั่งซื้อล่าสุด</h2>
         </div>
         <hr>
-        <table border="1">
+        <table id="myTableList">
+            <thead>
             <tr>
                 <th>รหัส</th>
                 <th>ลูกค้า</th>
@@ -180,18 +168,21 @@
                 <th>สถานะ</th>
                 <th>เวลา</th>
             </tr>
-            <tr>
-                <td><a href="detail.html?id=1">#1</a></td>
-                <td>พงศ์ศิริ เลิศพงษ์ไทย</td>
-                <td class="price">฿ 0.00</td>
-                <td class="pending">ใหม่</td>
-                <td class="time">5 นาทีที่แล้ว</td>
-            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+<!--            <tr>-->
+<!--                <td><a href="detail.html?id=1">#1</a></td>-->
+<!--                <td>พงศ์ศิริ เลิศพงษ์ไทย</td>-->
+<!--                <td class="price">฿ 0.00</td>-->
+<!--                <td class="pending">ใหม่</td>-->
+<!--                <td class="time">5 นาทีที่แล้ว</td>-->
+<!--            </tr>-->
         </table>
     </section>
 </main>
-<script src="inner.js"></script>
-<script src="graph.js"></script>
+<script src="backend/call.js"></script>
 <script src="../scripts/index.js"></script>
 <script src="scripts/login_req.js"></script>
 </body>

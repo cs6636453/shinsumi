@@ -59,3 +59,29 @@ window.addEventListener("click", function(event) {
 });
 
 send();
+
+let xmlHttp2;
+
+function send2() {
+    xmlHttp2 = new XMLHttpRequest();
+    xmlHttp2.onreadystatechange = showResult2;
+
+    // This is the PHP file from Step 1
+    let url = "scripts/login_check2.php";
+
+    xmlHttp2.open("POST", url);
+    xmlHttp2.send();
+}
+
+function showResult2() {
+    if (xmlHttp2.readyState == 4 && xmlHttp2.status == 200) {
+
+        // 1. Inject the HTML from PHP into your <section id="login_btn">
+        document.getElementById("welcome").innerHTML = xmlHttp2.responseText;
+
+        // 2. IMPORTANT: Now that the HTML exists, find the new elements
+        //    and add the click listener for the popup.
+        }
+}
+
+send2();

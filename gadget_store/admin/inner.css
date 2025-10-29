@@ -265,8 +265,9 @@ main ul {
     display: flex;
     list-style-type: none;
     padding: 0;
-    margin: 0;
     gap: 20px;
+    text-align: center;
+    margin: 0 0 0 20px;
 }
 
 main ul#nav li.active {
@@ -303,7 +304,7 @@ main section div.detail {
 }
 
 main section div.detail p {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     margin-top: auto;
     font-size: 24px;
 }
@@ -316,7 +317,7 @@ main section div.title span.right {
 }
 
 main section div.detail h4 {
-    font-size: 60px;
+    font-size: 28px;
     margin: 0;
 }
 
@@ -385,4 +386,214 @@ main section table tr td.refunded {
 div#side-nav-menu ul.side-nav-list li a.nav-item-button {
     text-decoration: none;
     width: auto;
+}
+
+canvas#shippingGraph {
+    height: 500px !important;
+}
+
+/* --- Styling for Last Orders Section --- */
+
+section#last_orders {
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 8px;       /* Rounded corners */
+    padding: 20px;            /* Inner spacing */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    margin-bottom: 25px;      /* Space below the section */
+}
+
+section#last_orders .title h2 {
+    margin: 0 0 10px 0; /* Remove top margin, add bottom margin */
+    font-size: 1.3em;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee; /* Underline the title */
+}
+
+/* Remove the <hr> if the border-bottom on h2 is enough */
+section#last_orders hr {
+    display: none;
+}
+
+/* --- Base & Mobile-First Styles (Default) --- */
+
+table#myTableList {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border: none;
+    /* Remove 'border-spacing' if 'border-collapse' is 'collapse' */
+}
+
+/* Hide header row by default on mobile */
+table#myTableList tbody tr th {
+    display: none;
+}
+
+/* Stack rows, cells, and tbody */
+table#myTableList tbody,
+table#myTableList tr,
+table#myTableList td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Style each row as a "card" */
+table#myTableList tr {
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    overflow: hidden; /* Fixes radius issue with cell backgrounds */
+}
+
+/* Cell styling for stacked layout */
+table#myTableList td {
+    text-align: left; /* Align text right (of the label) */
+    /* Make space for label */
+    padding: 10px 10px 10px 10px;
+    position: relative;
+    border-bottom: 1px solid #eee; /* Separator between cells in a card */
+    font-size: 0.95em;
+    vertical-align: top;
+}
+
+table#myTableList tr td:last-child {
+    border-bottom: 0;
+}
+
+/* Add data-labels as pseudo-elements */
+table#myTableList td::before {
+    content: attr(data-label); /* Read label from data attribute */
+    position: absolute;
+    left: 10px;
+    width: calc(50% - 20px);
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+}
+
+/* --- Common Styling (Applies to all sizes) --- */
+
+/* Link styling */
+table#myTableList tbody td a {
+    color: #007bff;
+    text-decoration: none;
+}
+table#myTableList tbody td a:hover {
+    text-decoration: underline;
+}
+
+/* Price styling */
+td.price {
+    font-weight: bold;
+}
+
+/* Time styling */
+td.time {
+    color: #6c757d;
+    font-size: 0.9em;
+}
+
+/* Status Styling (Base)
+  On mobile, these just add color/padding.
+  The 'display: block' from the 'td' rule handles the layout.
+*/
+td.pending, td.packing,
+td.shipping, td.completed,
+td.failed, td.cancelled, td.refunded {
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px; /* Adds space inside the card cell */
+    margin-bottom: 5px;
+    /* On mobile, we use the 'text-align' but let the 'td' be 'display: block' */
+}
+
+td.pending, td.packing {
+    color: #856404;
+    background-color: #fff3cd;
+}
+
+td.shipping {
+    color: #004085;
+    background-color: #cce5ff;
+}
+
+td.completed {
+    color: #155724;
+    background-color: #d4edda;
+}
+
+td.failed, td.cancelled, td.refunded {
+    color: #721c24;
+    background-color: #f8d7da;
+}
+
+
+/* --- Desktop Styles (min-width: 600px) --- */
+@media (min-width: 600px) {
+
+    /* Revert table elements to their default display */
+    table#myTableList tbody,
+    table#myTableList tr,
+    table#myTableList td {
+        display: revert; /* Reverts to table-row-group, table-row, table-cell */
+        width: auto;
+    }
+
+    /* Display the header row (hidden on mobile) and style it.
+      Selector targets the 'th' in 'tbody' to match your JS.
+    */
+    table#myTableList tbody tr th {
+        display: table-cell;
+        background-color: #f8f9fa;
+        border-bottom: 2px solid #dee2e6;
+        padding: 12px 10px;
+        text-align: left;
+        font-weight: bold;
+        color: #495057;
+    }
+
+    /* Undo "card" styles from mobile */
+    table#myTableList tr {
+        margin-bottom: 0;
+        border: none;
+        border-radius: 0;
+    }
+
+    /* Restore desktop cell styles */
+    table#myTableList td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: middle;
+        position: static; /* Undo 'position: relative' */
+        text-align: left; /* Override 'text-align: right' */
+    }
+
+    /* Hide the mobile data-labels */
+    table#myTableList td::before {
+        display: none;
+    }
+
+    /* Restore last row border rule */
+    table#myTableList tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Add desktop-only 'nowrap' */
+    td.price,
+    td.time {
+        white-space: nowrap;
+    }
+
+    /* Style status cells as 'inline-block' badges */
+    td.pending, td.packing,
+    td.shipping, td.completed,
+    td.failed, td.cancelled, td.refunded {
+        display: inline-block;
+        width: 120px;
+    }
 }
