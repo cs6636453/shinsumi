@@ -1,0 +1,260 @@
+/* --- Global --- */
+main.myMain {
+    border: none;
+    padding: 0;
+    /* (ใหม่) ปรับ layout หลักสำหรับ mobile */
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+main.myMain h1 {
+    font-size: 1.5em; /* (ใหม่) ปรับขนาดสำหรับ mobile */
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+s {
+    color: gray;
+}
+
+/* --- Layout (Mobile-Only) --- */
+.cart-layout {
+    display: flex;
+    flex-direction: column; /* (ใหม่) บังคับเป็นแนวตั้ง */
+    gap: 30px;
+}
+
+.cart-items-list {
+    width: 100%;
+}
+
+.cart-summary {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    height: fit-content;
+    position: static; /* (ใหม่) ไม่ต้อง sticky */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- Cart Item (Mobile-Only) --- */
+.cart_item {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* (ใหม่) ลดช่องไฟ */
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    flex-wrap: wrap; /* (ใหม่) บังคับให้ wrap ตลอด */
+}
+
+.cart_item img {
+    width: 80px; /* (ใหม่) ปรับขนาดรูป */
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+}
+
+.cart_detail {
+    flex-grow: 1;
+    min-width: 0; /* <-- (ใหม่) เพิ่มบรรทัดนี้ */
+}
+
+.cart_detail h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+
+    /* --- (ใหม่) ย้าย 3 บรรทัดมาไว้ตรงนี้ --- */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cart_detail p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.cart-item-unit-price {
+    font-size: 1em;
+    margin-top: 8px !important;
+    color: #000 !important;
+}
+
+.cart-item-unit-price s {
+    font-weight: normal;
+    color: #999;
+    margin-right: 5px;
+}
+
+/* --- Cart Controls (Mobile-Only) --- */
+.cart-controls {
+    display: flex;
+    width: 100%; /* (ใหม่) เต็มความกว้าง */
+    flex-direction: row; /* (ใหม่) จัดแนวนอน */
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px; /* (ใหม่) เว้นระยะจาก detail */
+}
+
+.cart-item-line-total {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #000;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.remove-btn:hover {
+    color: #d9534f;
+}
+
+/* --- Summary --- */
+.cart-summary h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.summary-row span:first-child {
+    color: #555;
+}
+
+.summary-row span:last-child {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* --- Cart Empty --- */
+.cart-empty {
+    text-align: center;
+    padding: 50px;
+    border: 2px dashed #eee;
+    border-radius: 8px;
+}
+
+/* --- (โค้ดเดิมของนาย) Quantity Input --- */
+.quantity-input {
+    display: flex;
+    width: fit-content;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.quantity-input input {
+    border: none;
+    background-color: transparent;
+    padding: 8px;
+}
+
+.quantity-input .qt-minus,
+.quantity-input .qt-plus {
+    background-color: #f5f5f5;
+    cursor: pointer;
+    width: 35px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.quantity-input .qt-minus:hover,
+.quantity-input .qt-plus:hover {
+    background-color: #e0e0e0;
+}
+
+.quantity-input .qt-number {
+    width: 40px; /* (ใหม่) ลดขนาดช่องตัวเลข */
+    text-align: center;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    font-size: 1em;
+}
+
+.quantity-input .qt-number {
+    -moz-appearance: textfield;
+}
+
+.quantity-input .qt-number::-webkit-outer-spin-button,
+.quantity-input .qt-number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* --- (โค้ดเดิมของนาย) Button --- */
+.btn {
+    flex: 1;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: #888888;
+    border: 1px solid #cccccc;
+}
+
+.btn-secondary:hover {
+    background-color: #f5f5f5;
+    border-color: #bbbbbb;
+}
+
+.btn-primary {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+}
+
+.btn-primary:hover {
+    background-color: #333333;
+    border-color: #333333;
+}
+
+/* (ใหม่) ปรับ .btn-checkout ให้เข้ากับ mobile */
+.btn-checkout {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+/* ... (ใส่ต่อจาก CSS เดิม) ... */
+
+.summary-row.summary-discount span:last-child {
+    color: #28a745; /* สีเขียวสำหรับส่วนลด (หรือ #d9534f ถ้าอยากได้สีแดง) */
+    font-weight: bold;
+}
+
+.summary-row.summary-final {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    margin-top: 10px;
+}
+
+.summary-row.summary-final span {
+    font-size: 1.3em; /* เน้นยอดสุดท้าย */
+    font-weight: bold;
+}

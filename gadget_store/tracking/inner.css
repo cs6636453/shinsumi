@@ -1,0 +1,88 @@
+/* --- Global --- */
+main.myMain {
+    border: none;
+    padding: 0;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+main.myMain h1 {
+    font-size: 1.5em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* --- (โค้ดเดิมของนาย) Button (เผื่อใช้) --- */
+.btn {
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: #888888;
+    border: 1px solid #cccccc;
+}
+
+.btn-secondary:hover {
+    background-color: #f5f5f5;
+    border-color: #bbbbbb;
+}
+
+.btn-primary {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+}
+
+.btn-primary:hover {
+    background-color: #333333;
+    border-color: #333333;
+}
+
+/* --- (ใหม่) CSS สำหรับหน้ารายการออเดอร์ --- */
+.my_orders {
+    /* (แก้ไข) เปลี่ยนจาก border เป็น flex */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* เว้นช่องไฟระหว่างการ์ด */
+}
+
+.order-link {
+    display: block;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-decoration: none !important; /* (แก้ไข) ทำให้ลิงก์ไม่มีเส้นใต้ */
+    color: #333 !important; /* (แก้ไข) ทำให้ลิงก์เป็นสีดำ */
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.order-link:hover {
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.order-link p {
+    margin: 0 0 8px 0;
+    line-height: 1.5;
+    word-wrap: break-word; /* ตัดคำที่อยู่ยาวๆ */
+}
+
+.order-link p:last-child {
+    margin-bottom: 0;
+}
+
+.order-empty-message {
+    padding: 40px 20px;
+    text-align: center;
+    color: #777;
+    border: 2px dashed #eee;
+    border-radius: 8px;
+}

@@ -1,0 +1,110 @@
+select#province {
+    height: 50px !important;
+}
+
+main { /* ใช้ main จาก global.css ได้เลย */
+    max-width: 800px; /* จำกัดความกว้างหน่อย */
+}
+main h1 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.account-section {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+.account-section h2 {
+    margin-top: 0;
+    font-size: 1.3em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+/* Style สำหรับแสดงข้อมูล */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 คอลัมน์ */
+    gap: 10px;
+}
+.info-grid p {
+    margin: 0;
+    line-height: 1.6;
+}
+.info-grid strong {
+    display: inline-block;
+    min-width: 100px; /* ทำให้ label กว้างเท่าๆ กัน */
+    color: #555;
+}
+/* Style สำหรับฟอร์ม (คล้ายๆ register) */
+.account-section form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.account-section form input[type="text"],
+.account-section form input[type="email"],
+.account-section form input[type="password"],
+.account-section form textarea,
+.account-section form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* สำคัญมาก */
+}
+.account-section form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+.account-section form input[type="submit"] {
+    background-color: #000;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+.account-section form input[type="submit"]:hover {
+    background-color: #333;
+}
+/* ข้อความ error (ถ้ามี) */
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+/* ข้อความเตือน */
+.warning-message {
+    color: #856404;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
