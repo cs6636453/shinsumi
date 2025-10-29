@@ -21,7 +21,7 @@
 
     while ($row = $stmt -> fetch()) {
         echo "<section class='bag_item'>";
-        echo "<a href='prod/index.php?id=".$row["pid"]."'><img src='assets/images/products/".$row["pid"].".png' alt='my_case'></a>";
+        echo "<a href='prod/index.php?id=".$row["pid"]."'><img src='../assets/images/products/".$row["pid"].".png' alt='my_case'></a>";
         echo "<p>".$row["pname"]."</p>";
         if ($row["discount_type"] == "fixed") {
             $final_price = $row["price"]-$row["discount_value"];
