@@ -25,7 +25,6 @@
 </head>
 <body>
 <nav>
-
     <div id="top_row">
         <!--ปุ่มเลือกเมนู-->
         <section class="container" id="menu_btn" onclick="animateMenuButton(this)">
@@ -36,7 +35,7 @@
 
         <!--ชื่อร้าน-->
         <section id="shop_name">
-            <a href="../">GADGET STORE</a>
+            <a href="../index.html">GADGET STORE</a>
         </section>
 
         <!--ปุ่ม Login-->
