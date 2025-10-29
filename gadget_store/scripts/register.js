@@ -9,7 +9,7 @@ function checkUsername() {
     let username = document.getElementById("username").value;
 
     let params = "username=" + encodeURIComponent(username);
-    let url = "scripts/checkuser.php";
+    let url = "../scripts/checkuser.php";
     xml2.open("POST", url);
     xml2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xml2.send(params);
