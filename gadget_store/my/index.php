@@ -43,7 +43,7 @@ if (!$user) {
 
             <!--ชื่อร้าน-->
             <section id="shop_name">
-                <a href="#">GADGET STORE</a>
+                <a href="../index.html">GADGET STORE</a>
             </section>
 
             <!--ปุ่ม Login-->

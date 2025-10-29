@@ -73,7 +73,7 @@ while ($cart_row = $stmt2 -> fetch()) { // 2. วนลูป $stmt2 (ตะก�
 
             <!--ชื่อร้าน-->
             <section id="shop_name">
-                <a href="#">GADGET STORE</a>
+                <a href="../index.html">GADGET STORE</a>
             </section>
 
             <!--ปุ่ม Login-->
