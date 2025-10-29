@@ -21,6 +21,8 @@ function showResult3() {
         if (xml.responseText.includes("Error")) {
             document.getElementById('error').innerHTML = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
             document.getElementById("submit").value = "Log in";
+        } else if (xml.responseText.includes("Admin")) {
+            window.location.href = '../admin/';
         } else {
             window.location.href = '../';
         }

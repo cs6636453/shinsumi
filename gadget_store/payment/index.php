@@ -73,7 +73,7 @@ while ($cart_row = $stmt2 -> fetch()) { // 2. วนลูป $stmt2 (ตะก�
 
             <!--ชื่อร้าน-->
             <section id="shop_name">
-                <a href="../index.html">GADGET STORE</a>
+                <a href="../">GADGET STORE</a>
             </section>
 
             <!--ปุ่ม Login-->
@@ -96,60 +96,50 @@ while ($cart_row = $stmt2 -> fetch()) { // 2. วนลูป $stmt2 (ตะก�
 
 <div id="side-nav-overlay"></div>
 
-<div id="side-nav-menu" class="side-nav">
-    <ul class="side-nav-list">
-        <li>
-            <button class="nav-item-button">
-                <span>โปรโมชัน</span>
-                <span class="material-symbols-outlined plus-icon">add</span>
-            </button>
-            <ul class="sub-menu">
-                <li><a href="/search/?search=promo1">โปรโมชัน 1</a></li>
-                <li><a href="/search/?search=promo2">โปรโมชัน 2</a></li>
-            </ul>
-        </li>
-        <li>
-            <button class="nav-item-button">
-                <span>เคส</span>
-                <span class="material-symbols-outlined plus-icon">add</span>
-            </button>
-            <ul class="sub-menu">
-                <li><a href="/search/?search=case_iphone">เคส iPhone</a></li>
-                <li><a href="/search/?search=case_samsung">เคส Samsung</a></li>
-            </ul>
-        </li>
-        <li>
-            <button class="nav-item-button">
-                <span>กระเป๋า</span>
-                <span class="material-symbols-outlined plus-icon">add</span>
-            </button>
-            <ul class="sub-menu">
-                <li><a href="/search/?search=bag_tote">Tote Bag</a></li>
-                <li><a href="/search/?search=bag_sling">Sling Bag</a></li>
-            </ul>
-        </li>
-        <li>
-            <button class="nav-item-button">
-                <span>อุปกรณ์เสริม</span>
-                <span class="material-symbols-outlined plus-icon">add</span>
-            </button>
-            <ul class="sub-menu">
-                <li><a href="/search/?search=acc_charger">ที่ชาร์จ</a></li>
-                <li><a href="/search/?search=acc_film">ฟิล์ม</a></li>
-            </ul>
-        </li>
-        <li>
-            <button class="nav-item-button">
-                <span>เพิ่มเติม</span>
-                <span class="material-symbols-outlined plus-icon">add</span>
-            </button>
-            <ul class="sub-menu">
-                <li><a href="/about_us">เกี่ยวกับเรา</a></li>
-                <li><a href="/contact">ติดต่อเรา</a></li>
-            </ul>
-        </li>
-    </ul>
-</div>
+   <div id="side-nav-menu" class="side-nav">
+       <ul class="side-nav-list">
+           <li>
+               <button class="nav-item-button">
+                   <span>โปรโมชั่น</span>
+                   <span class="material-symbols-outlined plus-icon">add</span>
+               </button>
+               <ul class="sub-menu">
+                   <li><a href="../search/?search=ฮาโลวีน">ฮาโลวีน</a></li>
+                   <li><a href="../search/?search=ลอยกระทง">ลอยกระทง</a></li>
+               </ul>
+           </li>
+           <li>
+               <button class="nav-item-button">
+                   <span>เคส</span>
+                   <span class="material-symbols-outlined plus-icon">add</span>
+               </button>
+               <ul class="sub-menu">
+                   <li><a href="../search/?search=iphone">iPhone</a></li>
+                   <li><a href="../search/?search=samsung">Samsung</a></li>
+               </ul>
+           </li>
+           <li>
+               <button class="nav-item-button">
+                   <span>กระเป๋า</span>
+                   <span class="material-symbols-outlined plus-icon">add</span>
+               </button>
+               <ul class="sub-menu">
+                   <li><a href="../search/?search=กระเป๋าผ้า">กระเป๋าผ้า</a></li>
+                   <li><a href="../search/?search=กระเป๋า">อื่นๆ</a></li>
+               </ul>
+           </li>
+           <li>
+               <button class="nav-item-button">
+                   <span>อุปกรณ์เสริม</span>
+                   <span class="material-symbols-outlined plus-icon">add</span>
+               </button>
+               <ul class="sub-menu">
+                   <li><a href="../search/?search=ที่ชาร์จ">ที่ชาร์จ</a></li>
+                   <li><a href="../search/?search=ฟิล์ม">ฟิล์ม</a></li>
+               </ul>
+           </li>
+       </ul>
+   </div>
 <main class="myMain cart-page-container">
     <h1>ชำระเงิน</h1>
 

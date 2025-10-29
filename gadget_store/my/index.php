@@ -43,7 +43,7 @@ if (!$user) {
 
             <!--ชื่อร้าน-->
             <section id="shop_name">
-                <a href="../index.html">GADGET STORE</a>
+                <a href="../">GADGET STORE</a>
             </section>
 
             <!--ปุ่ม Login-->
@@ -105,16 +105,6 @@ if (!$user) {
             <ul class="sub-menu">
                 <li><a href="/search/?search=acc_charger">ที่ชาร์จ</a></li>
                 <li><a href="/search/?search=acc_film">ฟิล์ม</a></li>
-            </ul>
-        </li>
-        <li>
-            <button class="nav-item-button">
-                <span>เพิ่มเติม</span>
-                <span class="material-symbols-outlined plus-icon">add</span>
-            </button>
-            <ul class="sub-menu">
-                <li><a href="/about_us">เกี่ยวกับเรา</a></li>
-                <li><a href="/contact">ติดต่อเรา</a></li>
             </ul>
         </li>
     </ul>
