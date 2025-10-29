@@ -6,3 +6,8 @@
 .step_box h1{
     margin-left: 0;
 }
+
+.step_box p::first-line {
+    font-size: large;
+    font-weight: bold;
+}
