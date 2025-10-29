@@ -62,37 +62,37 @@ while ($cart_row = $stmt2 -> fetch()) { // 2. วนลูป $stmt2 (ตะก�
     <link rel="stylesheet" href="inner.css">
 </head>
 <body>
-<nav>
+   <nav>
+        <div id="top_row">
+            <!--ปุ่มเลือกเมนู-->
+            <section class="container" id="menu_btn" onclick="animateMenuButton(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </section>
 
-    <div id="top_row">
-        <!--ปุ่มเลือกเมนู-->
-        <section class="container" id="menu_btn" onclick="animateMenuButton(this)">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </section>
+            <!--ชื่อร้าน-->
+            <section id="shop_name">
+                <a href="#">GADGET STORE</a>
+            </section>
 
-        <!--ชื่อร้าน-->
-        <section id="shop_name">
-            <a href="../">GADGET STORE</a>
-        </section>
+            <!--ปุ่ม Login-->
+            <section id="login_btn">
+                <a id="login"><img src="../assets/images/loading.gif" alt="loading"></a>
+            </section>
+        </div>
 
-        <!--ปุ่ม Login-->
-        <section id="login_btn">
-            <a id="login"><img src="../assets/images/loading.gif" alt="loading"></a>
-        </section>
-    </div>
-
-    <div id="bottom_row">
-        <!--แถบค้นหา-->
-        <section id="search_box">
-            <form action="../search/" id="search_form">
-                <label for="search_param"></label><input type="text" name="search" placeholder="ค้นหาสินค้า..." id="search_param">
-                <button type="submit"><span class="material-symbols-outlined">search</span></button>
-            </form>
-        </section>
-    </div>
-</nav>
+        <div id="bottom_row">
+            <!--แถบค้นหา-->
+            <section id="search_box">
+                <form action="../search/" id="search_form">
+                    <label for="search_param"></label><input type="text" name="search" placeholder="ค้นหาสินค้า"
+                        id="search_param">
+                    <button type="submit"><span class="material-symbols-outlined">search</span></button>
+                </form>
+            </section>
+        </div>
+    </nav>
 
 <div id="side-nav-overlay"></div>
 
