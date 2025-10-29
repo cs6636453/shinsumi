@@ -112,6 +112,7 @@ h1 {
 /* ------------------- RECOMMEND ------------------- */
 #recommend_by_category {
     display: flex;
+    justify-content: center;
     gap: 20px;                  /* space between items */
     padding: 0 20px 25px;       /* left-right + bottom padding (gap to scrollbar) */
     overflow-x: auto;
