@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8" name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="icon" href="../assets/favicon/xobazjr.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../assets/style/nav.css" />
     <link rel="stylesheet" href="../assets/style/global.css" />
@@ -10,8 +12,9 @@
     <title>Registration | We are Gadget Store</title>
     <link rel="stylesheet" href="../assets/style/login_form.css">
 </head>
+
 <body>
-   <nav>
+    <nav>
         <div id="top_row">
             <!--ปุ่มเลือกเมนู-->
             <section class="container" id="menu_btn" onclick="animateMenuButton(this)">
@@ -43,106 +46,103 @@
         </div>
     </nav>
 
-<div id="side-nav-overlay"></div>
+    <div id="side-nav-overlay"></div>
 
-   <div id="side-nav-menu" class="side-nav">
-       <ul class="side-nav-list">
-           <li>
-               <button class="nav-item-button">
-                   <span>โปรโมชั่น</span>
-                   <span class="material-symbols-outlined plus-icon">add</span>
-               </button>
-               <ul class="sub-menu">
-                   <li><a href="../search/?search=ฮาโลวีน">ฮาโลวีน</a></li>
-                   <li><a href="../search/?search=ลอยกระทง">ลอยกระทง</a></li>
-               </ul>
-           </li>
-           <li>
-               <button class="nav-item-button">
-                   <span>เคส</span>
-                   <span class="material-symbols-outlined plus-icon">add</span>
-               </button>
-               <ul class="sub-menu">
-                   <li><a href="../search/?search=iphone">iPhone</a></li>
-                   <li><a href="../search/?search=samsung">Samsung</a></li>
-               </ul>
-           </li>
-           <li>
-               <button class="nav-item-button">
-                   <span>กระเป๋า</span>
-                   <span class="material-symbols-outlined plus-icon">add</span>
-               </button>
-               <ul class="sub-menu">
-                   <li><a href="../search/?search=กระเป๋าผ้า">กระเป๋าผ้า</a></li>
-                   <li><a href="../search/?search=กระเป๋า">อื่นๆ</a></li>
-               </ul>
-           </li>
-           <li>
-               <button class="nav-item-button">
-                   <span>อุปกรณ์เสริม</span>
-                   <span class="material-symbols-outlined plus-icon">add</span>
-               </button>
-               <ul class="sub-menu">
-                   <li><a href="../search/?search=ที่ชาร์จ">ที่ชาร์จ</a></li>
-                   <li><a href="../search/?search=ฟิล์ม">ฟิล์ม</a></li>
-               </ul>
-           </li>
-       </ul>
-   </div>
-<main>
-    <h1>สมัครสมาชิก</h1>
-    <form action="" method="POST" onsubmit="return false;">
-        <label for="username">Username</label><br>
-        <input type="text" id="username" name="username" required onkeyup="checkUsername()">
-        <div id="erroruse"></div><br>
-        <label for="password">Password</label><br>
-        <input type="password" id="password" name="password" required><br>
+    <div id="side-nav-menu" class="side-nav">
+        <ul class="side-nav-list">
+            <li>
+                <button class="nav-item-button">
+                    <span>โปรโมชั่น</span>
+                    <span class="material-symbols-outlined plus-icon">add</span>
+                </button>
+                <ul class="sub-menu">
+                    <li><a href="../search/?search=ฮาโลวีน">ฮาโลวีน</a></li>
+                    <li><a href="../search/?search=ลอยกระทง">ลอยกระทง</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="nav-item-button">
+                    <span>เคส</span>
+                    <span class="material-symbols-outlined plus-icon">add</span>
+                </button>
+                <ul class="sub-menu">
+                    <li><a href="../search/?search=iphone">iPhone</a></li>
+                    <li><a href="../search/?search=samsung">Samsung</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="nav-item-button">
+                    <span>กระเป๋า</span>
+                    <span class="material-symbols-outlined plus-icon">add</span>
+                </button>
+                <ul class="sub-menu">
+                    <li><a href="../search/?search=กระเป๋าผ้า">กระเป๋าผ้า</a></li>
+                    <li><a href="../search/?search=กระเป๋า">อื่นๆ</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="nav-item-button">
+                    <span>อุปกรณ์เสริม</span>
+                    <span class="material-symbols-outlined plus-icon">add</span>
+                </button>
+                <ul class="sub-menu">
+                    <li><a href="../search/?search=ที่ชาร์จ">ที่ชาร์จ</a></li>
+                    <li><a href="../search/?search=ฟิล์ม">ฟิล์ม</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <main>
+        <h1>สมัครสมาชิก</h1>
+        <form action="" method="POST" onsubmit="return false;">
+            <label for="username">Username</label><br>
+            <input type="text" id="username" name="username" required onkeyup="checkUsername()">
+            <div id="erroruse"></div><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" required><br>
 
-        <label for="cf_password">Confirm Password</label><br>
-        <input type="password" id="cf_password" name="password" onkeyup="check_password()" required>
-        <div id="errorpass"></div><br>
-        <label for="first_name">ชื่อ</label><br>
-        <input type="text" id="first_name" name="first_name" required><br>
+            <label for="cf_password">Confirm Password</label><br>
+            <input type="password" id="cf_password" name="password" onkeyup="check_password()" required>
+            <div id="errorpass"></div><br>
+            <label for="first_name">ชื่อ</label><br>
+            <input type="text" id="first_name" name="first_name" required><br>
 
-        <label for="last_name">นามสกุล</label><br>
-        <input type="text" id="last_name" name="last_name" required><br>
+            <label for="last_name">นามสกุล</label><br>
+            <input type="text" id="last_name" name="last_name" required><br>
 
-        <label for="address">Address</label><br>
-        <textarea id="address" name="address" required></textarea><br>
+            <label for="address">Address</label><br>
+            <textarea id="address" name="address" required></textarea><br>
 
-        <label for="postal">Postal Code</label><br>
-        <input type="text" id="postal" name="postal"
-               onkeyup="getDataFromPostal()"
-               pattern="[0-9]{5}" required><br>
+            <label for="postal">Postal Code</label><br>
+            <input type="text" id="postal" name="postal" onkeyup="getDataFromPostal()" pattern="[0-9]{5}" required><br>
 
-        <label for="province">Province</label><br>
-        <select name="province" id="province" required>
-            <option>กรุณากรอกรหัสไปรษณีย์</option>
-        </select><br>
+            <label for="province">Province</label><br>
+            <select name="province" id="province" required>
+                <option>กรุณากรอกรหัสไปรษณีย์</option>
+            </select><br>
 
-        <label for="email">Email</label><br>
-        <input type="email" id="email" name="email" required><br>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" required><br>
 
-        <label for="tel">Tel.</label><br>
-        <input type="text" id="tel" name="tel" required
-            pattern="[0-9]{9,10}"><br>
+            <label for="tel">Tel.</label><br>
+            <input type="text" id="tel" name="tel" required pattern="[0-9]{9,10}"><br>
 
-        <input type="submit" id="submit"
-               value="Sign up" onclick="send_register() ">
-        <div id="error"></div><br>
-        <a href="../login_request/" id="back_to_login">Already signed up?</a>
-    </form>
-</main>
-<footer>
-    <h1>TEL 095-484-9802</h1>
-    <p>9:00 - 17:00 จันทร์-ศุกร์</p>
-    <p>คำสงวนสิทธิ์: หน้าเว็บนี้มีจุดประสงค์เพื่อส่งงานอาจารย์เท่านั้น</p>
-    <br>
-    <b>GADGET STORE</b>
-</footer>
+            <input type="submit" id="submit" value="Sign up" onclick="send_register() ">
+            <div id="error"></div><br>
+            <a href="../login_request/" id="back_to_login">Already signed up?</a>
+        </form>
+    </main>
+    <footer>
+        <h1><label>TEL</label> 095-484-9802</h1>
+        <p>9:00 - 17:00 จันทร์-ศุกร์</p>
+        <p>คำสงวนสิทธิ์: หน้าเว็บนี้มีจุดประสงค์เพื่อส่งงานอาจารย์เท่านั้น</p>
+        <br>
+        <b>GADGET STORE</b>
+    </footer>
 </body>
 <script src="../scripts/register.js"></script>
 <script src="../scripts/index.js"></script>
 <script src="../scripts/login_req.js"></script>
 <script src="inner.js"></script>
+
 </html>
