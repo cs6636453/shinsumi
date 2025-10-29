@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8" name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="icon" href="assets/favicon/xobazjr.ico" type="image/x-icon" />
     <link rel="stylesheet" href="assets/style/nav.css" />
     <link rel="stylesheet" href="assets/style/global.css" />
@@ -9,6 +11,7 @@
     <link rel="stylesheet" href="assets/style/index.css">
     <title>Home | We are Gadget Store</title>
 </head>
+
 <body>
     <nav>
 
@@ -35,7 +38,8 @@
             <!--แถบค้นหา-->
             <section id="search_box">
                 <form action="search/" id="search_form">
-                    <label for="search_param"></label><input type="text" name="search" placeholder="ค้นหาสินค้า..." id="search_param">
+                    <label for="search_param"></label><input type="text" name="search" placeholder="ค้นหาสินค้า..."
+                        id="search_param">
                     <button type="submit"><span class="material-symbols-outlined">search</span></button>
                 </form>
             </section>
@@ -103,12 +107,15 @@
 
         <!--dev here-->
         <section id="ads">
-            <a href="search/?search=ลอยกระทง" class="fade"><img class="mySlides" src="assets/images/ads/loykatong.png" alt="ลอยกระทง"></a>
-            <a href="search/?search=ฮาโลวีน" class="fade"><img class="mySlides" src="assets/images/ads/halloween.png" alt="ฮาโลวีน"></a>
+            <a href="search/?search=ลอยกระทง" class="fade"><img class="mySlides" src="assets/images/ads/loykatong.png"
+                    alt="ลอยกระทง"></a>
+            <a href="search/?search=ฮาโลวีน" class="fade"><img class="mySlides" src="assets/images/ads/halloween.png"
+                    alt="ฮาโลวีน"></a>
         </section>
 
         <section id="query_by_brand">
-            <a href="search/?search=xobazjr"><img src="assets/images/query_by_logo/xobazjr.png" alt="XobazJR Special"></a>
+            <a href="search/?search=xobazjr"><img src="assets/images/query_by_logo/xobazjr.png"
+                    alt="XobazJR Special"></a>
             <a href="search/?search=apple"><img src="assets/images/query_by_logo/apple.png" alt="Apple Brand"></a>
             <a href="search/?search=samsung"><img src="assets/images/query_by_logo/samsung.png" alt="Samsung Brand"></a>
         </section>
@@ -181,11 +188,12 @@
             slides[i].style.display = "none";
         }
         slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}
-        slides[slideIndex-1].style.display = "block";
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
         setTimeout(showSlides, 5000); // Change image every 2 seconds
     }
     showSlides();
 </script>
 <script src="scripts/index_category.js"></script>
+
 </html>

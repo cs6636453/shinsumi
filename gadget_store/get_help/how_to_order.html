@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="../assets/style/global.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/style/index.css">
+    <link rel="stylesheet" href="./inner.css" />
     <title>How to order | We are Gadget Store</title>
 </head>
 <body>
 <nav>
-
     <div id="top_row">
         <!--ปุ่มเลือกเมนู-->
         <section class="container" id="menu_btn" onclick="animateMenuButton(this)">
@@ -22,7 +22,7 @@
 
         <!--ชื่อร้าน-->
         <section id="shop_name">
-            <a href="#">GADGET STORE</a>
+            <a href="../index.html">GADGET STORE</a>
         </section>
 
         <!--ปุ่ม Login-->
@@ -100,15 +100,21 @@
 </div>
 
 <main>
-    <h1>หมวดหมู่</h1>
-    <section id="query_by_category">
-    </section>
-
-    <section id="query_by_brand">
-        <a href="../search/?search=xobazjr"><img src="../assets/images/query_by_logo/xobazjr.png" alt="XobazJR Special"></a>
-        <a href="../search/?search=apple"><img src="../assets/images/query_by_logo/apple.png" alt="Apple Brand"></a>
-        <a href="../search/?search=samsung"><img src="../assets/images/query_by_logo/samsung.png" alt="Samsung Brand"></a>
-    </section>
+    <div class="step_box">
+        <lable>
+            <h1>ขั้นตอนการสั่งซื้อ</h1>
+            <p>ลูกค้าสามารถสั่งซื้อสินค้าได้ตลอด 24 ชม.ที่หน้าเว็บไซต์ เมื่อได้รับรายการสั่งซื้อสินค้า ทางร้านจะคอนเฟิร์ม Order ใน 1 วันทำการ</p>
+            <p><strong>ขั้นตอนสั่งซื้อมีดังนี้</strong></p>
+            <ol type="1">
+                <li>เลือกรุ่นสินค้า และจำนวนที่ต้องการ</li>
+                <li>กดปุ่ม "ใส่ตะกร้าสินค้า"</li>
+                <li>เลือกวิธีการจัดส่ง</li>
+                <li>ระบบจะแสดง เลขที่สั่งซื้อ ให้เก็บหมายเลขนี้ไว้</li>
+                <li>รอเจ้าหน้าที่คอนเฟิร์มรายการที่สั่งซื้อ</li>
+                <li>เมื่อทางร้านได้รับยอดเงินตรงตามที่แจ้ง เจ้าหน้าที่จะคอนเฟิร์มวันที่จัดส่งสินค้า</li>
+            </ol>
+        </lable>
+    </div>
 </main>
 <footer>
     <h1>TEL 095-484-9802</h1>
