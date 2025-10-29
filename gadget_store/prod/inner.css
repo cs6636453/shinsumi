@@ -1,0 +1,120 @@
+main.myMain {
+    border: none;
+    margin: 20px;
+    padding: 0;
+}
+
+section.image {
+    text-align: center;
+    justify-content: center;
+}
+
+section.image img {
+    width: 80%;
+    height: auto;
+}
+
+s {
+    color: gray;
+}
+
+h3 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.quantity-input {
+    display: flex;
+    width: fit-content; /* ทำให้กรอบมีความกว้างพอดีกับเนื้อหา */
+    border: 1px solid #ccc;
+    border-radius: 4px; /* เพิ่มความโค้งมนเล็กน้อย (ไม่เอาก็ลบได้) */
+    overflow: hidden;
+}
+
+.quantity-input input {
+    border: none;
+    background-color: transparent;
+    padding: 8px; /* ขนาดช่องไฟ */
+}
+
+.quantity-input .qt-minus,
+.quantity-input .qt-plus {
+    background-color: #f5f5f5; /* สีเทาอ่อนๆ */
+    cursor: pointer;
+    width: 35px; /* กำหนดความกว้างปุ่ม */
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.quantity-input .qt-minus:hover,
+.quantity-input .qt-plus:hover {
+    background-color: #e0e0e0; /* สีเข้มขึ้นเมื่อเอาเมาส์ชี้ */
+}
+
+.quantity-input .qt-number {
+    width: 50px;
+    text-align: center;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    font-size: 1em;
+}
+
+.quantity-input .qt-number {
+    -moz-appearance: textfield; /* Firefox */
+}
+.quantity-input .qt-number::-webkit-outer-spin-button,
+.quantity-input .qt-number::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Chrome, Safari, Edge, Opera */
+    margin: 0;
+}
+
+.add-order {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px; /* เว้นช่องไฟระหว่างปุ่ม 10px */
+}
+
+/* 2. สไตล์ "ปุ่ม" หลัก (ใช้ร่วมกันทั้งสองปุ่ม) */
+.btn {
+    flex: 1; /* ทำให้ปุ่มทั้งสองขยายเต็มพื้นที่และกว้างเท่ากัน */
+
+    /* การจัดข้อความ */
+    text-decoration: none; /* ลบเส้นใต้ของลิงก์ <a> */
+    text-align: center;
+    font-weight: bold; /* ตัวหนา (ถ้าต้องการ) */
+
+    /* ขนาดและช่องไฟ */
+    padding: 12px 20px;
+
+    /* รูปลักษณ์ */
+    border-radius: 4px; /* ความโค้งมนของขอบ */
+    cursor: pointer;
+
+    /* อนิเมชั่นตอน hover */
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+/* 3. สไตล์ปุ่ม "ใส่ตะกร้า" (ปุ่มรอง) */
+.btn-secondary {
+    background-color: #ffffff; /* พื้นหลังขาว */
+    color: #888888; /* สีเทาอ่อน (เหมือนในรูป) */
+    border: 1px solid #cccccc; /* เส้นขอบสีเทา */
+}
+
+.btn-secondary:hover {
+    background-color: #f5f5f5; /* สีพื้นหลังเข้มขึ้นนิดนึง */
+    border-color: #bbbbbb;
+}
+
+/* 4. สไตล์ปุ่ม "ซื้อเลย" (ปุ่มหลัก) */
+.btn-primary {
+    background-color: #000000; /* พื้นหลังดำ */
+    color: #ffffff; /* ตัวหนังสือขาว */
+    border: 1px solid #000000; /* เส้นขอบสีดำ */
+}
+
+.btn-primary:hover {
+    background-color: #333333; /* สีดำอ่อนลงตอน hover */
+    border-color: #333333;
+}
