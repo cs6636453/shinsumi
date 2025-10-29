@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" href="../assets/favicon/xobazjr.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../assets/style/nav.css" />
+    <link rel="stylesheet" href="../assets/style/global.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/style/index.css">
+    <title>Dashboard | We are Gadget Store</title>
+    <link rel="stylesheet" href="../assets/style/login_form.css">
+    <link rel="stylesheet" href="inner.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
+</head>
+<body>
+<nav>
+    <div id="top_row">
+        <!--ปุ่มเลือกเมนู-->
+        <section class="container" id="menu_btn" onclick="animateMenuButton(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </section>
+
+        <!--ชื่อร้าน-->
+        <section id="shop_name">
+            <a href="../">GADGET STORE DASHBOARD</a>
+        </section>
+
+        <!--ปุ่ม Login-->
+        <section id="login_btn">
+            <a id="login"><img src="../assets/images/loading.gif" alt="loading"></a>
+        </section>
+    </div>
+
+    <div id="bottom_row">
+        <!--แถบค้นหา-->
+        <section id="search_box">
+            <form action="../search/" id="search_form">
+                <label for="search_param"></label><input type="text" name="search" placeholder="ค้นหาสินค้า"
+                                                         id="search_param">
+                <button type="submit"><span class="material-symbols-outlined">search</span></button>
+            </form>
+        </section>
+    </div>
+</nav>
+
+<div id="side-nav-overlay"></div>
+
+<div id="side-nav-menu" class="side-nav">
+    <ul class="side-nav-list">
+        <li>
+            <a href="./" class="nav-item-button">
+                <span class="material-symbols-outlined">home</span>
+                <span>Dashboard</span>
+                <span class="material-symbols-outlined">arrow_forward_ios</span>
+            </a>
+        </li>
+        <li>
+            <a href="products.html" class="nav-item-button">
+                <span class="material-symbols-outlined">package_2</span>
+                <span>Products</span>
+                <span class="material-symbols-outlined">arrow_forward_ios</span>
+            </a>
+        </li>
+        <li>
+            <a href="orders.html" class="nav-item-button">
+                <span class="material-symbols-outlined">order_approve</span>
+                <span>Orders</span>
+                <span class="material-symbols-outlined">arrow_forward_ios</span>
+            </a>
+        </li>
+        <li>
+            <a href="customers.html" class="nav-item-button">
+                <span class="material-symbols-outlined">person</span>
+                <span>Customers</span>
+                <span class="material-symbols-outlined">arrow_forward_ios</span>
+            </a>
+        </li>
+        <li>
+            <a href="promotions.html" class="nav-item-button">
+                <span class="material-symbols-outlined">loyalty</span>
+                <span>Promotions</span>
+                <span class="material-symbols-outlined">arrow_forward_ios</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<main class="myMain cart-page-container">
+
+    <h1>ยินดีต้อนรับ พงศ์ศิริ</h1>
+
+    <ul id="nav">
+        <li onclick="avgClick(0)" id="day" class="active">1 วันที่ผ่านมา</li>
+        <li onclick="avgClick(1)" id="week">สัปดาห์ที่ผ่านมา</li>
+        <li onclick="avgClick(2)" id="month">เดือนที่ผ่านมา</li>
+        <li onclick="avgClick(3)" id="year">1 ปีที่ผ่านมา</li>
+    </ul>
+
+    <section id="total_sale_baht">
+        <div class="title">
+            <h2>ยอดขายรวม</h2>
+            <h2 class="right">฿</h2>
+        </div>
+        <hr>
+        <div class="detail">
+            <h4>0.00</h4><p>บาท</p>
+        </div>
+    </section>
+
+    <section id="total_sale_orders">
+        <div class="title">
+            <h2>จำนวนคำสั่งซื้อ</h2>
+            <span class="material-symbols-outlined right">shopping_bag</span>
+        </div>
+        <hr>
+        <div class="detail">
+            <h4>1000</h4><p>ออเดอร์</p>
+        </div>
+    </section>
+
+    <section id="new_customer">
+        <div class="title">
+            <h2>ลูกค้าใหม่</h2>
+            <span class="material-symbols-outlined right">person</span>
+        </div>
+        <hr>
+        <div class="detail">
+            <h4>1000</h4><p>คน</p>
+        </div>
+    </section>
+
+    <section id="salesChart">
+        <div class="title">
+            <h2>กราฟแนวโน้มยอดขาย</h2>
+        </div>
+        <hr>
+        <canvas id="saleGraph" style="width:100%;max-width:600px"></canvas>
+    </section>
+
+    <section id="shippingChart">
+        <div class="title">
+            <h2>สถานะคำสั่งซื้อ</h2>
+        </div>
+        <hr>
+        <canvas id="shippingGraph" style="width:100%;max-width:600px"></canvas>
+    </section>
+
+    <section id="best_sales">
+        <div class="title">
+            <h2>สินค้าขายดี</h2>
+        </div>
+        <hr>
+        <div class="best_detail">
+            <h6>iPhone 15 Pro</h6>
+            <span>
+                <p>ขายแล้ว: 150</p><p class="red">คงเหลือ: 5</p>
+            </span>
+            <hr>
+        </div>
+        <div class="best_detail">
+            <h6>iPhone 15 Pro</h6>
+            <span>
+                <p>ขายแล้ว: 150</p><p class="red">คงเหลือ: 5</p>
+            </span>
+            <hr>
+        </div>
+    </section>
+
+    <section id="last_orders">
+        <div class="title">
+            <h2>คำสั่งซื้อล่าสุด</h2>
+        </div>
+        <hr>
+        <table border="1">
+            <tr>
+                <th>รหัส</th>
+                <th>ลูกค้า</th>
+                <th>ยอดเงิน</th>
+                <th>สถานะ</th>
+                <th>เวลา</th>
+            </tr>
+            <tr>
+                <td><a href="detail.html?id=1">#1</a></td>
+                <td>พงศ์ศิริ เลิศพงษ์ไทย</td>
+                <td class="price">฿ 0.00</td>
+                <td class="pending">ใหม่</td>
+                <td class="time">5 นาทีที่แล้ว</td>
+            </tr>
+        </table>
+    </section>
+</main>
+<script src="inner.js"></script>
+<script src="graph.js"></script>
+<script src="../scripts/index.js"></script>
+<script src="scripts/login_req.js"></script>
+</body>
+</html>
