@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../assets/style/login_form.css">
     <link rel="stylesheet" href="../assets/style/desktop_customer.css">
     <link rel="stylesheet" href="inner.css">
+    <link rel="stylesheet" href="../assets/style/desktop_nav.css">
 </head>
 <body>
 <nav>
