@@ -101,19 +101,3 @@ div#errorpass,
 div#erroruse {
     color: red;
 }
-
-@media screen and (min-width: 1024px) {
-    main {
-        border-radius: 10px;
-        border: none;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        justify-self: center;
-        width: 500px;
-        margin: 150px 20px 150px;
-    }
-
-    form input#username, form input#password, form input#cf_password, form input#email, form input#tel, form textarea#address, form input#subdistrict, form input#district, form input#province, form input#postal, form input#first_name, form input#last_name, form select {
-        height: unset;
-        margin-top: 10px;
-    }
-}
