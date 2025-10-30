@@ -89,11 +89,31 @@ main.myMain h1 {
 
 @media screen and (min-width: 1024px) {
     main.myMain h1 {
+        margin-left: 0;
         margin-right: 40px;
     }
 
     .order-link {
         margin-left: 40px;
         margin-right: 40px;
+    }
+
+    main.myMain h2 {
+        margin-left: 40px;
+    }
+
+    .order-item-list {
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+
+    .order-total-summary {
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+
+    .order-summary-card {
+        margin-right: 40px;
+        margin-left: 40px;
     }
 }
