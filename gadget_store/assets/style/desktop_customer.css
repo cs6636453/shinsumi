@@ -1,5 +1,45 @@
 @media (min-width: 1024px) {
+    main {
+        display: block;
+    }
 
+    #ads a img {
+        width: 100%;
+    }
 
+    #ads{
+        margin: 40px 100px 40px 100px;
+    }
 
+    #query_by_brand {
+        margin-left: 40px;
+    }
+
+    h1 {
+        margin-left: 50px;
+    }
+
+    #bag_category {
+        margin-left: 30px;
+    }
+
+    #case_category {
+        margin-left: 30px;
+    }
+
+    a.footer, a.footer:hover, a.footer:active, a.footer:focus {
+        text-decoration: none;
+        color: black;
+        display: flex;
+        justify-content: center;
+    }
+
+    #footer_div {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    #query_by_brand a img {
+        width: 180px;
+    }
 }

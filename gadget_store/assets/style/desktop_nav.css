@@ -1,0 +1,38 @@
+@media (min-width: 1024px) {
+    nav {
+        display: flex;
+        padding: 35px;
+    }
+    
+    #shop_name { 
+        order: 1; 
+        transform: none;
+    }
+
+    #bottom_row {
+        order: 2;
+        margin-top: 0;
+        width: 30%;
+        margin-left: 120px;
+    }
+
+    #login_btn {
+        order: 3;
+        display: flex;
+        justify-content: right;
+        position: fixed;
+        margin-right: 25px;
+    }
+
+    #menu_btn {
+        display: none;
+    }
+
+    #search_box {
+        margin-left: 20px;
+    }
+
+    #search_form input {
+        font-size: 15px;
+    }
+}
