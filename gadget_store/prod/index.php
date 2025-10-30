@@ -106,9 +106,11 @@
    </div>
 <main class="myMain">
     <p><?=$row["category_name"]?> > <?=$row["pname"]?></p>
+    <span class="outer_span">
     <section class="image">
         <img src="../assets/images/products/<?=$_GET['id']?>">
     </section>
+    <span class="inner_span">
     <h3><?=$row["pname"]?></h3>
     <?php
         if ($row["stock"] >= 1) {
@@ -145,6 +147,8 @@
     <?php
     }
     ?>
+    </span>
+    </span>
 </main>
 <footer>
     <h1><label>TEL</label> 095-484-9802</h1>

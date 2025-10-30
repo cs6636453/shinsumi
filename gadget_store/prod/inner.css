@@ -118,3 +118,9 @@ h3 {
     background-color: #333333; /* สีดำอ่อนลงตอน hover */
     border-color: #333333;
 }
+
+@media screen and (min-width: 1024px) {
+    span.outer_span { 
+        display: flex;
+    }
+}
