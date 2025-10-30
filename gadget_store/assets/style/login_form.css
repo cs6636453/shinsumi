@@ -111,4 +111,9 @@ div#erroruse {
         width: 500px;
         margin: 150px 20px 150px;
     }
+
+    form input#username, form input#password, form input#cf_password, form input#email, form input#tel, form textarea#address, form input#subdistrict, form input#district, form input#province, form input#postal, form input#first_name, form input#last_name, form select {
+        height: unset;
+        margin-top: 10px;
+    }
 }
