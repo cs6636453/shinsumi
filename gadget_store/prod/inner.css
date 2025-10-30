@@ -120,6 +120,15 @@ h3 {
 }
 
 @media screen and (min-width: 1024px) {
+    main {
+        width: unset;
+        box-shadow: none;
+    }
+
+    main.myMain {
+        justify-self: left;
+    }
+
     span.outer_span { 
         display: flex;
     }
