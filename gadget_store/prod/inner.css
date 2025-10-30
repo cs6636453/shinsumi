@@ -124,6 +124,10 @@ h3 {
         display: flex;
     }
 
+    section.image {
+        text-align: none;
+    }
+
     section.image img {
         width: 350px;
     }
@@ -134,11 +138,11 @@ h3 {
 
     h3 {
         font-size: 30px;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     span + h3 {
-        margin-bottom: 220px;
+        margin-bottom: 160px;
     }
 
     .btn-secondary {
@@ -147,5 +151,9 @@ h3 {
 
     .quantity-input {
         margin-top: 10px;
+    }
+
+    .myMain > p {
+        margin-bottom: 30px;
     }
 }
