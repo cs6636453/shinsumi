@@ -156,4 +156,12 @@ h3 {
     .myMain > p {
         margin-bottom: 30px;
     }
+
+    .btn {
+        width: 300px;
+    }
+
+    .add-order {
+        margin-top: 25px;
+    }
 }
