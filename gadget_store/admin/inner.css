@@ -570,6 +570,69 @@ section#last_orders table tr td input.del {
     padding: 5px;
 }
 
+/* --- สำหรับปุ่มไอคอน (Edit/Delete) --- */
+.actions {
+    text-align: center; /* จัดไอคอนให้อยู่กลาง (ถ้าต้องการ) */
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0 3px;
+    border-radius: 50%; /* ทำให้เป็นวงกลม */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.icon-btn .material-symbols-outlined {
+    font-size: 20px; /* ขนาดไอคอน */
+    color: #555; /* สีไอคอนปกติ */
+}
+
+/* สี่ปุ่ม Edit */
+.icon-btn.edit-btn:hover {
+    background-color: #e0e7ff; /* สีฟ้าอ่อนตอน hover */
+}
+.icon-btn.edit-btn:hover .material-symbols-outlined {
+    color: #0056b3; /* สีฟ้าเข้มตอน hover */
+}
+
+/* สี่ปุ่ม Delete */
+.icon-btn.del-btn:hover {
+    background-color: #ffe0e0; /* สีแดงอ่อนตอน hover */
+}
+.icon-btn.del-btn:hover .material-symbols-outlined {
+    color: #d9534f; /* สีแดงเข้มตอน hover */
+}
+
+/* --- สำหรับป้ายสถานะ (Status Badge) --- */
+.status-badge {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.status-badge.status-active {
+    color: #155724;
+    background-color: #d4edda;
+}
+
+.status-badge.status-expired {
+    color: #721c24;
+    background-color: #f8d7da;
+}
+
+.status-badge.status-upcoming {
+    color: #383d41;
+    background-color: #e2e3e5;
+}
 
 /* --- Desktop Styles (min-width: 600px) --- */
 @media (min-width: 600px) {

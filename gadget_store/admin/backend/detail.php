@@ -1,6 +1,6 @@
 <?php
-include "../../../db/connect.php"; // (ปรับ path ตามตำแหน่งไฟล์นี้)
-if (!isset($_SESSION['username'])) header("Location: ../../../login_request/"); // (ควรเช็กว่าเป็น Admin ด้วย)
+include "../../db/connect.php"; // (ปรับ path ตามตำแหน่งไฟล์นี้)
+if (!isset($_SESSION['username'])) header("Location: ../../login_request/"); // (ควรเช็กว่าเป็น Admin ด้วย)
 
 // 1. ตรวจสอบว่ามี ID ส่งมาไหม
 $order_id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
@@ -104,14 +104,14 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
 <html lang="en">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="icon" href="../../../assets/favicon/xobazjr.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="../../../assets/style/nav.css" />
-    <link rel="stylesheet" href="../../../assets/style/global.css" />
+    <link rel="icon" href="../../assets/favicon/xobazjr.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../assets/style/nav.css" />
+    <link rel="stylesheet" href="../../assets/style/global.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" rel="stylesheet" />
-    <link rel="stylesheet" href="../../../assets/style/index.css">
+    <link rel="stylesheet" href="../../assets/style/index.css">
     <title>Order Detail #<?=$order_id?> | GS MyAdmin Panel</title>
-    <link rel="stylesheet" href="../../../assets/style/login_form.css">
-    <link rel="stylesheet" href="../../inner.css"> <style>
+    <link rel="stylesheet" href="../../assets/style/login_form.css">
+    <link rel="stylesheet" href="../inner.css"> <style>
         main.myMain {
             border: none; padding: 0; max-width: 1200px; margin: 20px auto; padding: 0 20px;
         }
@@ -242,7 +242,7 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
             <a href="../../">GS MyAdmin Dashboard</a>
         </section>
         <section id="login_btn">
-            <a id="login"><img src="../../../assets/images/loading.gif" alt="loading"></a>
+            <a id="login"><img src="../../assets/images/loading.gif" alt="loading"></a>
         </section>
     </div>
 </nav>
@@ -251,15 +251,15 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
 
 <div id="side-nav-menu" class="side-nav">
     <ul class="side-nav-list">
-        <li><a href="../../" class="nav-item-button"><span class="material-symbols-outlined">home</span><span>Dashboard</span><span class="material-symbols-outlined">arrow_forward_ios</span></a></li>
-        <li><a href="../../products.php" class="nav-item-button"><span class="material-symbols-outlined">package_2</span><span>Products</span><span class="material-symbols-outlined">arrow_forward_ios</span></a></li>
-        <li><a href="../../orders.php" class="nav-item-button active"><span class="material-symbols-outlined">order_approve</span><span>Orders</span><span class="material-symbols-outlined">arrow_forward_ios</span></a></li>
-        <li><a href="../../promotions.php" class="nav-item-button"><span class="material-symbols-outlined">loyalty</span><span>Promotions</span><span class="material-symbols-outlined">arrow_forward_ios</span></a></li>
+        <li><a href="../" class="nav-item-button"><span class="material-symbols-outlined">home</span><span>Dashboard</span><span class="material-symbols-outlined">arrow_forward_ios</span></a></li>
+        <li><a href="../products.html" class="nav-item-button"><span class="material-symbols-outlined">package_2</span><span>Products</span><span class="material-symbols-outlined">arrow_forward_ios</span></a></li>
+        <li><a href="../orders.html" class="nav-item-button active"><span class="material-symbols-outlined">order_approve</span><span>Orders</span><span class="material-symbols-outlined">arrow_forward_ios</span></a></li>
+        <li><a href="../promotions.html" class="nav-item-button"><span class="material-symbols-outlined">loyalty</span><span>Promotions</span><span class="material-symbols-outlined">arrow_forward_ios</span></a></li>
     </ul>
 </div>
 
 <main class="myMain cart-page-container">
-    <h1><a href="../../orders.php" style="text-decoration: none; color: #888;">Orders</a> > #<?=htmlspecialchars($_GET['id'])?></h1>
+    <h1><a href="../orders.html" style="text-decoration: none; color: #888;">Orders</a> > #<?=htmlspecialchars($_GET['id'])?></h1>
 
     <?php if (!empty($errors)): ?>
         <ul class="error-list">
@@ -298,7 +298,7 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
                 $grand_total += $item['total'];
                 ?>
                 <div class="order-item">
-                    <img src="../../../assets/images/products/<?=$item['pid']?>" alt="<?=htmlspecialchars($item['pname'])?>">
+                    <img src="../../assets/images/products/<?=$item['pid']?>" alt="<?=htmlspecialchars($item['pname'])?>">
                     <div class="item-details">
                         <h4><?=htmlspecialchars($item['pname'])?></h4>
                         <p><?=number_format($item['price_each'], 2)?> บาท x <?=$item['quantity']?> ชิ้น</p>
@@ -335,7 +335,7 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
 </main>
 
 
-<script src="../../../scripts/index.js"></script>
+<script src="../../scripts/index.js"></script>
 <script src="../../scripts/login_req.js"></script>
 </body>
 </html>

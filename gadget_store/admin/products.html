@@ -33,17 +33,6 @@
             <a id="login"><img src="../assets/images/loading.gif" alt="loading"></a>
         </section>
     </div>
-
-    <div id="bottom_row">
-        <!--แถบค้นหา-->
-        <section id="search_box">
-            <form action="../search/" id="search_form">
-                <label for="search_param"></label><input type="text" name="search" placeholder="ค้นหาสินค้า"
-                                                         id="search_param">
-                <button type="submit"><span class="material-symbols-outlined">search</span></button>
-            </form>
-        </section>
-    </div>
 </nav>
 
 <div id="side-nav-overlay"></div>
@@ -89,6 +78,7 @@
 </div>
 <main class="myMain cart-page-container">
     <h1 id="welcome" style="display: none;"></h1>
+    <span class="flex">
     <section id="total_sale_baht">
         <div class="title">
             <h2>สินค้าทั้งหมด</h2>
@@ -121,6 +111,7 @@
             <h4 id="newcus"></h4><p>รายการ</p>
         </div>
     </section>
+        </span>
 
     <section id="myFinder">
         <input type="text" id="findProduct" onkeyup="xmlProListReq()" placeholder="ค้นหาสินค้า">
@@ -128,10 +119,6 @@
     </section>
 
     <section id="last_orders">
-        <div class="title">
-            <h2>คำสั่งซื้อล่าสุด</h2>
-        </div>
-        <hr>
         <table id="myTableList">
             <tr>
                 <th>ชื่อสินค้า</th>

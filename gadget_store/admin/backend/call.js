@@ -349,6 +349,10 @@ function fetchProductSalesStock(period) {
     // --- END REMOVED ---
 
     let xhttp = new XMLHttpRequest();
+    let productHeader = `<div class="title-my">
+                        <h2>สินค้าขายดี</h2>
+                        <hr class="first">
+                    </div>`;
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             console.log("Product Sales AJAX successful. Response:", this.responseText);
@@ -363,6 +367,10 @@ function fetchProductSalesStock(period) {
                         best_sales_container.innerHTML = '<div class="best_detail" style="text-align: center; color: #777;"><p>No product sales found for this period.</p></div>';
                         return;
                     }
+
+
+
+                    best_sales_container.innerHTML = productHeader;
 
                     for (let i = 0; i < productNames.length; i++) {
                         let productHTML = `
@@ -443,7 +451,7 @@ function fetchLastOrders(period) {
                     orders.forEach(order => {
                         let rowHTML = `
                             <tr>
-                                <td><a href="detail.php?id=${order.id}">#${order.id}</a></td>
+                                <td><a href="backend/detail.php?id=${order.id}">#${order.id}</a></td>
                                 <td>${order.name}</td>
                                 <td class="price">฿ ${order.total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                                 <td class="${order.status}">${order.status}</td>

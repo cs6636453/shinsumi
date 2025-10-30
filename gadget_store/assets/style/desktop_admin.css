@@ -1,5 +1,63 @@
 @media (min-width: 1024px) {
+    span.flex {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
 
+    span.flex section {
+        width: 33%;
+    }
 
+    span.flex-2 {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
 
+    span.flex-2 section {
+        width: 50%;
+    }
+
+    .side-nav {
+        width: 200px;
+    }
+
+    #side-nav-menu,
+    .side-nav-list {
+        display: block;
+        transform: translateX(0);
+    }
+
+    main.myMain {
+        width: calc(100% - 200px);
+        margin-left: 180px;
+        overflow-x: hidden;
+        right: 0;
+        padding-right: 0;
+    }
+
+    section#best_sales {
+        max-height: 585px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-top: 0;
+    }
+
+    section#best_sales div.title-my h2 {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    section#best_sales div.title-my {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: #efefef;
+    }
+
+    main section div.title-my {
+        display: block;
+    }
 }
