@@ -231,6 +231,13 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
         .status-update-form button:disabled {
             background-color: #eee; cursor: not-allowed; opacity: 0.7;
         }
+
+        @media (min-width: 1024px) {
+            span.inner {
+                max-width: 700px !important;
+                margin-left: 70px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -275,7 +282,8 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
 
 
     <?php if (count($all_items) > 0): ?>
-
+    <span class="flex-2">
+    <span class="inner">
         <h2>Update Status</h2>
         <section class="status-update-form">
             <form action="detail.php?id=<?=$order_id?>" method="POST" style="display: contents;">
@@ -318,6 +326,8 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
             </div>
         </div>
 
+        </span>
+        <span>
         <h2>สรุปคำสั่งซื้อ</h2>
         <section class="order-summary-card">
             <div class="summary-grid">
@@ -328,10 +338,11 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
                 <p class="address-full"><strong>ที่อยู่จัดส่ง:</strong><br><?=$address?></p>
             </div>
         </section>
-
+        </span>
     <?php else: ?>
         <p class="order-empty-message">ไม่พบข้อมูลคำสั่งซื้อนี้</p>
     <?php endif; ?>
+        </span>
 
 </main>
 
