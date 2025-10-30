@@ -237,6 +237,14 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
                 max-width: 700px !important;
                 margin-left: 70px !important;
             }
+
+            div.order-item {
+                width: 500px; !important;
+            }
+
+            span.inner section.order-item-list {
+                min-width: 600px !important;
+            }
         }
     </style>
 </head>
@@ -319,7 +327,7 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
             <?php } ?>
         </section>
 
-        <div class="order-total-summary">
+        <div class="order-total-summary" style="max-width: 400px;">
             <div class="total-row">
                 <span>ยอดรวมทั้งหมด</span>
                 <strong><?=number_format($grand_total, 2)?> บาท</strong>
@@ -327,7 +335,7 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
         </div>
 
         </span>
-        <span>
+        <span style="width: 350px;">
         <h2>สรุปคำสั่งซื้อ</h2>
         <section class="order-summary-card">
             <div class="summary-grid">
