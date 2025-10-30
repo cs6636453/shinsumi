@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="inner.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
     <link rel="stylesheet" href="../assets/style/desktop_admin.css">
+
 </head>
 <body>
 <nav>
@@ -78,42 +79,38 @@
 </div>
 <main class="myMain cart-page-container">
     <h1 id="welcome" style="display: none;"></h1>
+    <span class="flex-2">
     <section id="total_sale_baht">
         <div class="title">
-            <h2>สินค้าทั้งหมด</h2>
-            <span class="material-symbols-outlined right">package_2</span>
+            <h2>โปรโมชั่นทั้งหมด</h2>
+            <span class="material-symbols-outlined right">percent_discount</span>
         </div>
         <hr>
         <div class="detail">
-            <h4 id="total_sale_price"></h4><p>ชิ้น</p>
+            <h4 id="total_sale_price"></h4><p>รายการ</p>
         </div>
     </section>
+        </span>
 
-    <section id="total_sale_orders">
-        <div class="title">
-            <h2>สต็อกใกล้หมด</h2>
-            <span class="material-symbols-outlined right">deployed_code_update</span>
-        </div>
-        <hr>
-        <div class="detail">
-            <h4 id="total_orders"></h4><p>ชิ้น</p>
-        </div>
+    <section id="myFinder">
+        <input type="text" id="findProduct" onkeyup="xmlProListReq()" placeholder="ค้นหาโปรโมชั่น">
+        <input type="button" onclick="add()" value="เพิ่มโปรโมชั่น" id="findAdd">
     </section>
 
-    <section id="new_customer">
-        <div class="title">
-            <h2>สินค้าหมด</h2>
-            <span class="material-symbols-outlined right">deployed_code_alert</span>
-        </div>
-        <hr>
-        <div class="detail">
-            <h4 id="newcus"></h4><p>ชิ้น</p>
-        </div>
+    <section id="last_orders">
+        <table id="myTableList">
+            <tr>
+                <th>ชื่อ</th>
+                <th>ประเภท</th>
+                <th>ช่วงเวลา</th>
+                <th>สถานะ</th>
+                <th>จัดการ</th>
+            </tr>
+
+        </table>
     </section>
-
-
 </main>
-<script src="backend/call_products.js"></script>
+<script src="backend/call_promo.js"></script>
 <script src="../scripts/index.js"></script>
 <script src="scripts/login_req.js"></script>
 </body>

@@ -87,7 +87,8 @@
         <li onclick="avgClick(3)" id="year">1 ปีที่ผ่านมา</li>
     </ul>
 
-    <section id="total_sale_baht">
+    <span class="flex">
+        <section id="total_sale_baht">
         <div class="title">
             <h2>ยอดขายรวม</h2>
             <h2 class="right">฿</h2>
@@ -119,7 +120,9 @@
             <h4 id="newcus"></h4><p>คน</p>
         </div>
     </section>
+    </span>
 
+    <span class="flex">
     <section id="salesChart">
         <div class="title">
             <h2>กราฟแนวโน้มยอดขาย</h2>
@@ -128,7 +131,7 @@
         <canvas id="saleGraph" style="width:100%;max-width:600px"></canvas>
     </section>
 
-    <section id="shippingChart">
+        <section id="shippingChart">
         <div class="title">
             <h2>สถานะคำสั่งซื้อ</h2>
         </div>
@@ -143,6 +146,8 @@
         <hr>
 
     </section>
+    </span>
+
 
     <section id="last_orders">
         <div class="title">
