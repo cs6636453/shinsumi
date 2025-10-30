@@ -231,6 +231,21 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
         .status-update-form button:disabled {
             background-color: #eee; cursor: not-allowed; opacity: 0.7;
         }
+
+        @media (min-width: 1024px) {
+            span.inner {
+                max-width: 700px !important;
+                margin-left: 70px !important;
+            }
+
+            div.order-item {
+                width: 500px; !important;
+            }
+
+            span.inner section.order-item-list {
+                min-width: 600px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -275,7 +290,8 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
 
 
     <?php if (count($all_items) > 0): ?>
-
+    <span class="flex-2">
+    <span class="inner">
         <h2>Update Status</h2>
         <section class="status-update-form">
             <form action="detail.php?id=<?=$order_id?>" method="POST" style="display: contents;">
@@ -311,13 +327,15 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
             <?php } ?>
         </section>
 
-        <div class="order-total-summary">
+        <div class="order-total-summary" style="max-width: 400px;">
             <div class="total-row">
                 <span>ยอดรวมทั้งหมด</span>
                 <strong><?=number_format($grand_total, 2)?> บาท</strong>
             </div>
         </div>
 
+        </span>
+        <span style="width: 350px;">
         <h2>สรุปคำสั่งซื้อ</h2>
         <section class="order-summary-card">
             <div class="summary-grid">
@@ -328,10 +346,11 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
                 <p class="address-full"><strong>ที่อยู่จัดส่ง:</strong><br><?=$address?></p>
             </div>
         </section>
-
+        </span>
     <?php else: ?>
         <p class="order-empty-message">ไม่พบข้อมูลคำสั่งซื้อนี้</p>
     <?php endif; ?>
+        </span>
 
 </main>
 

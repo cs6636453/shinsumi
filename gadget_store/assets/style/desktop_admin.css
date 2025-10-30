@@ -30,12 +30,17 @@
     }
 
     main.myMain,
-    main.cart-page-container {
+    main.cart-page-container,
+    main.myMain.cart-page-container {
         width: calc(100% - 200px);
         margin-left: 180px;
-        overflow-x: hidden;
-        right: 0;
-        padding-right: 0;
+        overflow-x: hidden !important;
+        right: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    main.myMain h2 {
+        margin-left: 10px;
     }
 
     section#best_sales {
