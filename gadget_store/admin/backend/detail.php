@@ -25,9 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt_check->execute([$order_id]);
             $current_status = $stmt_check->fetchColumn();
 
-            if ($current_status === 'refunded') {
+            if ($current_status === 'refunded' || $current_status === 'completed') {
                 // ถ้าเป็น refunded แล้ว ห้ามแก้
-                $errors[] = "ไม่สามารถอัปเดตสถานะได้ เนื่องจากออเดอร์นี้ถูก Refunded แล้ว";
+                $errors[] = "ไม่สามารถอัปเดตสถานะได้ เนื่องจากออเดอร์นี้ถูก Refunded หรือ Completed แล้ว";
 
             } else if ($current_status !== 'refunded' && $new_status === 'refunded') {
                 // *** (สำคัญ) Logic การ Refund ***
@@ -111,6 +111,7 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
     <link rel="stylesheet" href="../../assets/style/index.css">
     <title>Order Detail #<?=$order_id?> | GS MyAdmin Panel</title>
     <link rel="stylesheet" href="../../assets/style/login_form.css">
+    <link rel="stylesheet" href="../../assets/style/desktop_admin.css">
     <link rel="stylesheet" href="../inner.css"> <style>
         main.myMain {
             border: none; padding: 0; max-width: 1200px; margin: 20px auto; padding: 0 20px;
@@ -287,7 +288,7 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
                         </option>
                     <?php endforeach; ?>
                 </select>
-                <button type="submit" <?= ($status === 'refunded') ? 'disabled' : '' ?>>Update Status</button>
+                <button type="submit" <?= ($status === 'refunded' || $status === 'completed') ? 'disabled' : '' ?>>Update Status</button>
             </form>
         </section>
 

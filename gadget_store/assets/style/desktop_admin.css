@@ -29,7 +29,8 @@
         transform: translateX(0);
     }
 
-    main.myMain {
+    main.myMain,
+    main.cart-page-container {
         width: calc(100% - 200px);
         margin-left: 180px;
         overflow-x: hidden;
@@ -45,8 +46,9 @@
     }
 
     section#best_sales div.title-my h2 {
-        margin-top: 15px;
-        margin-bottom: 15px;
+        margin-top: 0;
+        padding-top: 15px;
+        margin-bottom: 5px;
         text-align: left;
     }
 
