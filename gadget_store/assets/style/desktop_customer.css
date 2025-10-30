@@ -4,7 +4,8 @@
     }
 
     #ads a img {
-        width: 100%;
+        justify-self: center;
+        width: 90%;
     }
 
     #ads{

@@ -126,6 +126,7 @@ h3 {
     }
 
     main.myMain {
+        margin: 40px 30px 150px 40px;
         justify-self: left;
     }
 
