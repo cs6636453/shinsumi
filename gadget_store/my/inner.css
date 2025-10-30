@@ -4,6 +4,7 @@ select#province {
 
 main { /* ใช้ main จาก global.css ได้เลย */
     max-width: 800px; /* จำกัดความกว้างหน่อย */
+    border: none;
 }
 main h1 {
     border-bottom: 1px solid #eee;
@@ -16,6 +17,7 @@ main h1 {
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 25px;
+    margin-left: 20px;
 }
 .account-section h2 {
     margin-top: 0;
@@ -107,4 +109,20 @@ main h1 {
     color: #721c24;
     background-color: #f8d7da;
     border-color: #f5c6cb;
+}
+
+@media screen and (min-width: 1024px) {
+    main {
+        max-width: none;
+        border: none;
+    }
+
+    .account-section {
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+
+    main h1 {
+        margin-right: 40px;
+    }
 }
