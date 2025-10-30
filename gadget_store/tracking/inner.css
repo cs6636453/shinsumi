@@ -89,12 +89,11 @@ main.myMain h1 {
 
 @media screen and (min-width: 1024px) {
     main.myMain h1 {
-        margin-left: 0;
+        margin-left: 0px;
         margin-right: 40px;
     }
 
     .order-link {
-        margin-left: 40px;
         margin-right: 40px;
     }
 
