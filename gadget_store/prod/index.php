@@ -121,7 +121,12 @@
 
     if ($row["discount_type"] == "fixed") {
         $final_price = $row["price"]-$row["discount_value"];
-        echo '<h3><span style="color: gray;">ราคา </span><s>'.$row["price"].'</s><span style="color: red;"> '.round($final_price).' </span>บาท</h3>';
+        echo '<h3><span style="color: gray;">ราคา </span>
+              <s>'.$row["price"].'</s>
+              <span style="color: red;"> '.round($final_price).'
+              </span>บาท</h3>';
+
+
     } else if ($row["discount_type"] == "percent") {
         $final_price = $row["price"]-($row["discount_value"]*$row["price"]);
         echo '<h3><span style="color: gray;">ราคา </span><s>'.$row["price"].'</s><span style="color: red;"> '.round($final_price).' </span>บาท</h3>';
