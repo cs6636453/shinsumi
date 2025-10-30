@@ -3,7 +3,7 @@
 
     $query = '%'.$_POST["query"].'%';
 
-    $stmt = $pdo -> prepare("SELECT p.pid, p.pname, p.price, pr.discount_type, pr.discount_value, pr.end_date FROM gs_product p LEFT JOIN gs_promotion pr ON pr.pr_id = p.pr_id WHERE (p.pname LIKE ? OR p.description LIKE ?) AND p.stock >= 1;");
+    $stmt = $pdo -> prepare("SELECT p.stock, p.pid, p.pname, p.price, pr.discount_type, pr.discount_value, pr.end_date FROM gs_product p LEFT JOIN gs_promotion pr ON pr.pr_id = p.pr_id WHERE (p.pname LIKE ? OR p.description LIKE ?) AND p.stock >= 1;");
     $stmt -> bindParam(1, $query);
     $stmt -> bindParam(2, $query);
     $stmt -> execute();
@@ -22,7 +22,12 @@
             echo "<span class='price'><span class='price_tag'>ราคา</span> ".$row["price"]." บาท</span>";
         }
         echo "<hr>";
-        echo "<a href='cart/add.php?id=".$row["pid"]."&count=1' class='add_to_cart'>ใส่ตะกร้า</a>";
+        if ($row['stock'] > 0) {
+            echo "<a href='cart/add.php?id=".$row["pid"]."&count=1' class='add_to_cart'>ใส่ตะกร้า</a>";
+        }
+        else {
+            echo "<a class='add_to_cart' style='color: gray;'>ขออภัยสินค้าหมดแล้ว</a>";
+        }
         echo "</section>";
     }
 ?>

@@ -29,6 +29,7 @@ if (!$user) {
     <link rel="stylesheet" href="../assets/style/index.css">
     <title>บัญชีของฉัน | We are Gadget Store</title>
     <link rel="stylesheet" href="../assets/style/login_form.css">
+    <link rel="stylesheet" href="../assets/style/desktop_customer.css">
     <link rel="stylesheet" href="inner.css">
 </head>
 <body>

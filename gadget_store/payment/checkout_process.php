@@ -100,6 +100,7 @@ try {
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/style/index.css">
     <title>ยืนยันคำสั่งซื้อ | We are Gadget Store</title>
+    <link rel="stylesheet" href="../assets/style/desktop_customer.css">
     <link rel="stylesheet" href="../assets/style/login_form.css">
 
     <style>

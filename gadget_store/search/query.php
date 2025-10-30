@@ -1,6 +1,6 @@
 <?php
     include '../db/connect.php';
-    $stmt = $pdo -> prepare("SELECT p.pid, p.pname, p.price, pr.discount_type, pr.discount_value, pr.end_date
+    $stmt = $pdo -> prepare("SELECT p.stock, p.pid, p.pname, p.price, pr.discount_type, pr.discount_value, pr.end_date
                                    FROM gs_product p
                                    JOIN gs_category c ON c.category_id = p.category_id
                                    LEFT JOIN gs_promotion pr ON pr.pr_id = p.pr_id
@@ -33,7 +33,12 @@
             echo "<span class='price'><span class='price_tag'>ราคา</span> ".$row["price"]." บาท</span>";
         }
         echo "<hr>";
-        echo "<a href='../cart/add.php?id=".$row["pid"]."&count=1' class='add_to_cart'>ใส่ตะกร้า</a>";
+        if ($row['stock'] > 0) {
+            echo "<a href='cart/add.php?id=".$row["pid"]."&count=1' class='add_to_cart'>ใส่ตะกร้า</a>";
+        }
+        else {
+            echo "<a class='add_to_cart' style='color: gray;'>ขออภัยสินค้าหมดแล้ว</a>";
+        }
         echo "</section>";
     }
 ?>
