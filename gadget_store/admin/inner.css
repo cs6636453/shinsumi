@@ -532,6 +532,44 @@ td.failed, td.cancelled, td.refunded {
     background-color: #f8d7da;
 }
 
+section#myFinder {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    background-color: white;
+    gap: 10px;
+}
+
+section#myFinder input#findProduct {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+section#myFinder input#findAdd {
+    background-color: cornflowerblue;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+section#last_orders table tr td input.add {
+    background-color: mediumseagreen;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: white;
+    padding: 5px;
+}
+
+section#last_orders table tr td input.del {
+    background-color: indianred;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: white;
+    padding: 5px;
+}
+
 
 /* --- Desktop Styles (min-width: 600px) --- */
 @media (min-width: 600px) {

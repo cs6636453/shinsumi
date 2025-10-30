@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../assets/style/login_form.css">
     <link rel="stylesheet" href="inner.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
+    <link rel="stylesheet" href="../assets/style/desktop_admin.css">
 </head>
 <body>
 <nav>
@@ -30,17 +31,6 @@
         <!--ปุ่ม Login-->
         <section id="login_btn">
             <a id="login"><img src="../assets/images/loading.gif" alt="loading"></a>
-        </section>
-    </div>
-
-    <div id="bottom_row">
-        <!--แถบค้นหา-->
-        <section id="search_box">
-            <form action="../search/" id="search_form">
-                <label for="search_param"></label><input type="text" name="search" placeholder="ค้นหาสินค้า"
-                                                         id="search_param">
-                <button type="submit"><span class="material-symbols-outlined">search</span></button>
-            </form>
         </section>
     </div>
 </nav>
@@ -70,13 +60,13 @@
                 <span class="material-symbols-outlined">arrow_forward_ios</span>
             </a>
         </li>
-        <li>
-            <a href="customers.html" class="nav-item-button">
-                <span class="material-symbols-outlined">person</span>
-                <span>Customers</span>
-                <span class="material-symbols-outlined">arrow_forward_ios</span>
-            </a>
-        </li>
+<!--        <li>-->
+<!--            <a href="customers.html" class="nav-item-button">-->
+<!--                <span class="material-symbols-outlined">person</span>-->
+<!--                <span>Customers</span>-->
+<!--                <span class="material-symbols-outlined">arrow_forward_ios</span>-->
+<!--            </a>-->
+<!--        </li>-->
         <li>
             <a href="promotions.html" class="nav-item-button">
                 <span class="material-symbols-outlined">loyalty</span>
@@ -87,102 +77,43 @@
     </ul>
 </div>
 <main class="myMain cart-page-container">
-
-    <h1 id="welcome"></h1>
-
-    <ul id="nav">
-        <li onclick="avgClick(0)" id="day" class="active">1 วันที่ผ่านมา</li>
-        <li onclick="avgClick(1)" id="week">สัปดาห์ที่ผ่านมา</li>
-        <li onclick="avgClick(2)" id="month">เดือนที่ผ่านมา</li>
-        <li onclick="avgClick(3)" id="year">1 ปีที่ผ่านมา</li>
-    </ul>
-
+    <h1 id="welcome" style="display: none;"></h1>
     <section id="total_sale_baht">
         <div class="title">
-            <h2>ยอดขายรวม</h2>
-            <h2 class="right">฿</h2>
+            <h2>สินค้าทั้งหมด</h2>
+            <span class="material-symbols-outlined right">package_2</span>
         </div>
         <hr>
         <div class="detail">
-            <h4 id="total_sale_price"></h4><p>บาท</p>
+            <h4 id="total_sale_price"></h4><p>ชิ้น</p>
         </div>
     </section>
 
     <section id="total_sale_orders">
         <div class="title">
-            <h2>จำนวนคำสั่งซื้อ</h2>
-            <span class="material-symbols-outlined right">shopping_bag</span>
+            <h2>สต็อกใกล้หมด</h2>
+            <span class="material-symbols-outlined right">deployed_code_update</span>
         </div>
         <hr>
         <div class="detail">
-            <h4 id="total_orders"></h4><p>ออเดอร์</p>
+            <h4 id="total_orders"></h4><p>ชิ้น</p>
         </div>
     </section>
 
     <section id="new_customer">
         <div class="title">
-            <h2>ลูกค้าใหม่</h2>
-            <span class="material-symbols-outlined right">person</span>
+            <h2>สินค้าหมด</h2>
+            <span class="material-symbols-outlined right">deployed_code_alert</span>
         </div>
         <hr>
         <div class="detail">
-            <h4 id="newcus"></h4><p>คน</p>
+            <h4 id="newcus"></h4><p>ชิ้น</p>
         </div>
     </section>
 
-    <section id="salesChart">
-        <div class="title">
-            <h2>กราฟแนวโน้มยอดขาย</h2>
-        </div>
-        <hr>
-        <canvas id="saleGraph" style="width:100%;max-width:600px"></canvas>
-    </section>
 
-    <section id="shippingChart">
-        <div class="title">
-            <h2>สถานะคำสั่งซื้อ</h2>
-        </div>
-        <hr>
-        <canvas id="shippingGraph" style="width:100%;max-width:600px"></canvas>
-    </section>
-
-    <section id="best_sales">
-        <div class="title">
-            <h2>สินค้าขายดี</h2>
-        </div>
-        <hr>
-
-    </section>
-
-    <section id="last_orders">
-        <div class="title">
-            <h2>คำสั่งซื้อล่าสุด</h2>
-        </div>
-        <hr>
-        <table id="myTableList">
-            <thead>
-            <tr>
-                <th>รหัส</th>
-                <th>ลูกค้า</th>
-                <th>ยอดเงิน</th>
-                <th>สถานะ</th>
-                <th>เวลา</th>
-            </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-            <!--            <tr>-->
-            <!--                <td><a href="detail.html?id=1">#1</a></td>-->
-            <!--                <td>พงศ์ศิริ เลิศพงษ์ไทย</td>-->
-            <!--                <td class="price">฿ 0.00</td>-->
-            <!--                <td class="pending">ใหม่</td>-->
-            <!--                <td class="time">5 นาทีที่แล้ว</td>-->
-            <!--            </tr>-->
-        </table>
-    </section>
 </main>
-<script src="backend/call.js"></script>
+<script src="backend/call_products.js"></script>
 <script src="../scripts/index.js"></script>
 <script src="scripts/login_req.js"></script>
 </body>

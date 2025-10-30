@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../assets/style/login_form.css">
     <link rel="stylesheet" href="inner.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
+    <link rel="stylesheet" href="../assets/style/desktop_admin.css">
 </head>
 <body>
 <nav>
@@ -70,13 +71,13 @@
                 <span class="material-symbols-outlined">arrow_forward_ios</span>
             </a>
         </li>
-        <li>
-            <a href="customers.html" class="nav-item-button">
-                <span class="material-symbols-outlined">person</span>
-                <span>Customers</span>
-                <span class="material-symbols-outlined">arrow_forward_ios</span>
-            </a>
-        </li>
+<!--        <li>-->
+<!--            <a href="customers.html" class="nav-item-button">-->
+<!--                <span class="material-symbols-outlined">person</span>-->
+<!--                <span>Customers</span>-->
+<!--                <span class="material-symbols-outlined">arrow_forward_ios</span>-->
+<!--            </a>-->
+<!--        </li>-->
         <li>
             <a href="promotions.html" class="nav-item-button">
                 <span class="material-symbols-outlined">loyalty</span>
@@ -87,7 +88,7 @@
     </ul>
 </div>
 <main class="myMain cart-page-container">
-
+    <h1 id="welcome" style="display: none;"></h1>
     <section id="total_sale_baht">
         <div class="title">
             <h2>สินค้าทั้งหมด</h2>
@@ -95,7 +96,7 @@
         </div>
         <hr>
         <div class="detail">
-            <h4 id="total_sale_price"></h4><p>ชิ้น</p>
+            <h4 id="total_sale_price"></h4><p>รายการ</p>
         </div>
     </section>
 
@@ -106,7 +107,7 @@
         </div>
         <hr>
         <div class="detail">
-            <h4 id="total_orders"></h4><p>ชิ้น</p>
+            <h4 id="total_orders"></h4><p>รายการ</p>
         </div>
     </section>
 
@@ -117,10 +118,31 @@
         </div>
         <hr>
         <div class="detail">
-            <h4 id="newcus"></h4><p>ชิ้น</p>
+            <h4 id="newcus"></h4><p>รายการ</p>
         </div>
     </section>
 
+    <section id="myFinder">
+        <input type="text" id="findProduct" onkeyup="xmlProListReq()" placeholder="ค้นหาสินค้า">
+        <input type="button" onclick="add()" value="เพิ่มสินค้า" id="findAdd">
+    </section>
+
+    <section id="last_orders">
+        <div class="title">
+            <h2>คำสั่งซื้อล่าสุด</h2>
+        </div>
+        <hr>
+        <table id="myTableList">
+            <tr>
+                <th>ชื่อสินค้า</th>
+                <th>ราคาสินค้า</th>
+                <th>หมวดหมู่</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+        </table>
+    </section>
 
 </main>
 <script src="backend/call_products.js"></script>
