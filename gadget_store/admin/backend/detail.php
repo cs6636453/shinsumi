@@ -255,7 +255,7 @@ $all_statuses = ["pending", "packing", "shipping", "completed", "failed", "cance
             <div class="bar1"></div> <div class="bar2"></div> <div class="bar3"></div>
         </section>
         <section id="shop_name">
-            <a href="../../">GS MyAdmin Dashboard</a>
+            <a href="../">GS MyAdmin Dashboard</a>
         </section>
         <section id="login_btn">
             <a id="login"><img src="../../assets/images/loading.gif" alt="loading"></a>
