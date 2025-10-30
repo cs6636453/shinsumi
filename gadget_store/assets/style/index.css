@@ -116,7 +116,7 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 20px;                  /* space between items */
-    padding: 0 100px 25px 310px;       /* left-right + bottom padding (gap to scrollbar) */
+    padding: 0 20px 25px;       /* left-right + bottom padding (gap to scrollbar) */
     overflow-x: auto;
     scroll-behavior: smooth;
     box-sizing: border-box;
