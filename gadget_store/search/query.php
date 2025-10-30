@@ -34,7 +34,7 @@
         }
         echo "<hr>";
         if ($row['stock'] > 0) {
-            echo "<a href='cart/add.php?id=".$row["pid"]."&count=1' class='add_to_cart'>ใส่ตะกร้า</a>";
+            echo "<a href='../cart/add.php?id=".$row["pid"]."&count=1' class='add_to_cart'>ใส่ตะกร้า</a>";
         }
         else {
             echo "<a class='add_to_cart' style='color: gray;'>ขออภัยสินค้าหมดแล้ว</a>";

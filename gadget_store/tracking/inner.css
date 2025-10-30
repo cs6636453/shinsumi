@@ -86,3 +86,33 @@ main.myMain h1 {
     border: 2px dashed #eee;
     border-radius: 8px;
 }
+
+@media screen and (min-width: 1024px) {
+    main.myMain h1 {
+        margin-left: 0px;
+        margin-right: 40px;
+    }
+
+    .order-link {
+        margin-right: 40px;
+    }
+
+    main.myMain h2 {
+        margin-left: 40px;
+    }
+
+    .order-item-list {
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+
+    .order-total-summary {
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+
+    .order-summary-card {
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+}

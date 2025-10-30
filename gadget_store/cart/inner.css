@@ -258,3 +258,9 @@ s {
     font-size: 1.3em; /* เน้นยอดสุดท้าย */
     font-weight: bold;
 }
+
+@media screen and (min-width: 1024px) {  
+    .cart-layout { 
+        flex-direction: none;
+    }
+} 
