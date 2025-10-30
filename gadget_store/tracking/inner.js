@@ -1,47 +1,30 @@
 document.addEventListener("DOMContentLoaded", function() {
-
-    // 1. หา Element ที่เราต้องใช้บ่อยๆ
     const grandTotalElement = document.getElementById('cart-grand-total');
-
-    // 2. วนลูปหา .cart_item (แทน .quantity-input)
     document.querySelectorAll('.cart_item').forEach(function(cartItem) {
-
-        // 3. หาค่าต่างๆ จาก data- attributes ที่เราเพิ่มใน HTML
         const pid = cartItem.dataset.pid;
         const unitPrice = parseFloat(cartItem.dataset.unitPrice);
-
-        // 4. หาปุ่ม/ช่องตัวเลข/ปุ่มลบ "ภายใน" cartItem นี้
         const numberInput = cartItem.querySelector('.qt-number');
         const minusBtn = cartItem.querySelector('.qt-minus');
         const plusBtn = cartItem.querySelector('.qt-plus');
         const removeBtn = cartItem.querySelector('.remove-btn');
         const lineTotalElement = cartItem.querySelector('.cart-item-line-total');
-
-        // 5. เมื่อคลิกปุ่มบวก
         plusBtn.addEventListener('click', function() {
             let newQuantity = parseInt(numberInput.value) + 1;
             numberInput.value = newQuantity;
             sendCartUpdate(pid, newQuantity); // ส่งอัปเดตไปเบื้องหลัง
             updatePrices(); // อัปเดตราคาบนหน้าเว็บทันที
         });
-
-        // 6. เมื่อคลิกปุ่มลบ
         minusBtn.addEventListener('click', function() {
             let newQuantity = parseInt(numberInput.value) - 1;
-
             if (newQuantity >= 0) {
                 numberInput.value = newQuantity;
                 sendCartUpdate(pid, newQuantity); // ส่งอัปเดต
                 updatePrices(); // อัปเดตราคา
             }
-
             if (newQuantity === 0) {
-                // ถ้าเหลือ 0, ให้ลบแถวนั้นทิ้ง
                 cartItem.remove();
             }
         });
-
-        // 7. เมื่อคลิกปุ่มถังขยะ (ลบ)
         removeBtn.addEventListener('click', function() {
             sendCartUpdate(pid, 0); // ส่งค่า 0 (ลบ) ไปเบื้องหลัง
             cartItem.remove(); // ลบแถวนี้ทิ้งทันที
