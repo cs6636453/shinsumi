@@ -187,6 +187,7 @@ if(isset($_GET['status']) && $_GET['status'] == 'added') {
     <link rel="stylesheet" href="../../../assets/style/index.css">
     <title>Edit Product #<?= htmlspecialchars($product_id) ?> | GS MyAdmin Panel</title>
     <link rel="stylesheet" href="../../../assets/style/login_form.css">
+    <link rel="stylesheet" href="../../../assets/style/desktop_admin.css">
     <link rel="stylesheet" href="../../inner.css"> <style>
         /* (Same styles as add.php, with addition for current image) */
         main.myMain { max-width: 800px; margin: 20px auto; }

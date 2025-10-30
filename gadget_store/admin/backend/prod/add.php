@@ -137,6 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../../../assets/style/global.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" rel="stylesheet" />
     <link rel="stylesheet" href="../../../assets/style/index.css">
+    <link rel="stylesheet" href="../../../assets/style/desktop_admin.css">
     <title>Add New Product | GS MyAdmin Panel</title>
     <link rel="stylesheet" href="../../../assets/style/login_form.css">
     <link rel="stylesheet" href="../../inner.css"> <style>
