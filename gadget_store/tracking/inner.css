@@ -86,3 +86,14 @@ main.myMain h1 {
     border: 2px dashed #eee;
     border-radius: 8px;
 }
+
+@media screen and (min-width: 1024px) {
+    main.myMain h1 {
+        margin-right: 40px;
+    }
+
+    .order-link {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+}
