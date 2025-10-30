@@ -71,5 +71,14 @@
 
     .bag_item p {
         height: 80px;
+        width: 100%;
+    }
+
+    footer p, footer b {
+        margin-left: 42px;
+    }
+
+    main {
+        overflow-x: hidden;
     }
 }
