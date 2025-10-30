@@ -101,3 +101,14 @@ div#errorpass,
 div#erroruse {
     color: red;
 }
+
+@media screen and (min-width: 1024px) {
+    main {
+        border-radius: 10px;
+        border: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        justify-self: center;
+        width: 500px;
+        margin: 100px 20px 100px;
+    }
+}

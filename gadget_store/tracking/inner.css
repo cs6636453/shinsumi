@@ -89,7 +89,7 @@ main.myMain h1 {
 
 @media screen and (min-width: 1024px) {
     main.myMain h1 {
-        margin-left: 0px;
+        margin-left: 0;
         margin-right: 40px;
     }
 
