@@ -70,3 +70,9 @@ section#queryResult {
 .bag_item hr {
     display: none;
 }
+
+@media screen and (min-width: 1024px) {
+    section#queryResult {
+        padding: 42px;
+    }
+}

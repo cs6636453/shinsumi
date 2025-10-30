@@ -261,6 +261,11 @@ s {
 
 @media screen and (min-width: 1024px) {  
     .cart-layout { 
-        flex-direction: none;
+        gap: 50px;
+        flex-direction: row;
+    }
+
+    .summary-row {
+        margin-bottom: 40px;
     }
 } 

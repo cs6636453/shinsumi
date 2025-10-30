@@ -127,7 +127,6 @@
             // 3. (แก้ไข) วนลูปจาก Array
             $i = 0;
             foreach ($all_orders as $row) {
-                if ($i > 0) echo "<hr>";
                 ?>
                 <a href="detail.php?id=<?=$row['ord_id']?>" class="order-link">
                     <p><b>คำสั่งซื้อที่: </b><?=$row['ord_id']?></p>
