@@ -421,7 +421,6 @@ table#myTableList {
     border-collapse: collapse;
     margin-top: 15px;
     border: none;
-    /* Remove 'border-spacing' if 'border-collapse' is 'collapse' */
 }
 
 /* Hide header row by default on mobile */

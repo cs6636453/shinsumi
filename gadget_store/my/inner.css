@@ -73,10 +73,11 @@ main h1 {
     font-size: 1em;
     transition: background-color 0.2s;
 }
+
 .account-section form input[type="submit"]:hover {
     background-color: #333;
 }
-/* ข้อความ error (ถ้ามี) */
+
 .error-message {
     color: red;
     font-size: 0.9em;
