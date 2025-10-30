@@ -123,4 +123,29 @@ h3 {
     span.outer_span { 
         display: flex;
     }
+
+    section.image img {
+        width: 350px;
+    }
+
+    span.outer_span {
+        gap: 50px;
+    }
+
+    h3 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    span + h3 {
+        margin-bottom: 220px;
+    }
+
+    .btn-secondary {
+        margin-top: 30px;
+    }
+
+    .quantity-input {
+        margin-top: 10px;
+    }
 }
