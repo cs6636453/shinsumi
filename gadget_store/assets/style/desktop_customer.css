@@ -16,7 +16,7 @@
     }
 
     h1 {
-        margin-left: 50px;
+        margin-left: 40px;
     }
 
     #bag_category {
@@ -41,5 +41,35 @@
 
     #query_by_brand a img {
         width: 180px;
+    }
+
+    #recommend {
+        padding-top: 30px;
+    }
+
+    #recommend_by_category {
+        padding: 0 20px 50px;
+        margin-left: 30px;
+    }
+
+    #recommend_by_category a img {
+        width: 240px;
+        margin-top: 20px;
+    }
+
+    #query_by_category {
+        margin-left: 20px;
+    }
+
+    .bag_item a img {
+        width: 200px;
+    }
+
+    .bag_item a img {
+        width: 240px;
+    }
+
+    .bag_item p {
+        height: 80px;
     }
 }
