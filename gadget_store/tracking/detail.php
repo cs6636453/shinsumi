@@ -25,6 +25,7 @@ $stmt -> execute();
     <link rel="stylesheet" href="../assets/style/index.css">
     <title>คำสั่งซื้อทั้งหมด | We are Gadget Store</title>
     <link rel="stylesheet" href="../assets/style/login_form.css">
+    <link rel="stylesheet" href="../assets/style/desktop_customer.css">
 
     <style>
         /* --- Global --- */
