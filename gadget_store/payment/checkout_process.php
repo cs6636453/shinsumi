@@ -2,91 +2,149 @@
 include "../db/connect.php";
 if ($_SESSION['username'] == null) header("location: ../login_request/");
 
-// --- (ใหม่) สร้างตัวแปรเก็บสถานะ ---
+// --- ตัวแปรหลักสำหรับสถานะและ Log ---
 $order_success = true;
 $error_message = "";
-$last_order_id = null; // (แก้ไข) เปลี่ยนชื่อ $last เป็น $last_order_id
+$last_order_id = null; // ID ออเดอร์หลัก
+$payment_method = 'ชำระเงินปลายทาง'; // Payment Method
+$first_name = ''; // เตรียมตัวแปรชื่อ
+$last_name = ''; // เตรียมตัวแปรสกุล
+
+// --- กำหนดค่า Log ---
+// ต้องมั่นใจว่า path นี้มีสิทธิ์เขียน (../log/orders.csv)
+$log_header = 'เลขออเดอร์,วันที่,เวลา,ชื่อลูกค้า,นามสกุลลูกค้า,จำนวน,ราคาต่อชิ้น,ส่วนลดต่อชิ้น,วิธีชำระเงิน';
+$log_file = '../log/orders.csv';
+
+$currentDate = date('Y-m-d');
+$currentTime = date('H:i:s');
 
 try {
-    // 1. (ใหม่) เริ่ม Transaction
+    // 1. เริ่ม Transaction เพื่อรับประกันความสมบูรณ์ของข้อมูล
     $pdo->beginTransaction();
 
-    // 2. (แก้บั๊กที่ 1) ดึงข้อมูลตะกร้า "ทั้งหมด" มาเก็บใน Array ก่อน
+    // 2. ดึงข้อมูลตะกร้า "ทั้งหมด"
     $stmt_cart = $pdo->prepare("select p.pid, p.pname, sum(c.quantity) as quantity, p.price, pr.discount_type, pr.discount_value
                                     from gs_product p join gs_cart c on c.pid = p.pid
                                     left join gs_promotion pr on pr.pr_id = p.pr_id
                                     where c.username = ? group by p.pid;");
     $stmt_cart->bindParam(1, $_SESSION['username']);
     $stmt_cart->execute();
-    $cart_items = $stmt_cart->fetchAll(PDO::FETCH_ASSOC); // <-- ดึงทั้งหมดมาเก็บ
+    $cart_items = $stmt_cart->fetchAll(PDO::FETCH_ASSOC);
 
-    // 3. (ใหม่) ถ้าตะกร้าว่าง ก็ไม่ต้องทำอะไร
+    // 3. ถ้าตะกร้าว่าง
     if (count($cart_items) == 0) {
-        header("location: ../cart/"); // เด้งกลับไปหน้าตะกร้า
+        header("location: ../cart/");
         exit;
     }
 
-    // --- (ใหม่!) 2. ตรวจสอบสต็อกสินค้าทั้งหมดก่อน ---
+    // 4. ตรวจสอบสต็อกสินค้าทั้งหมดก่อนเริ่มทำรายการ
     $stmt_check_stock = $pdo->prepare("SELECT stock, pname FROM gs_product WHERE pid = ?");
     foreach ($cart_items as $item) {
         $stmt_check_stock->execute([$item['pid']]);
         $product = $stmt_check_stock->fetch();
 
-        // ถ้าของไม่มี หรือ สต็อกไม่พอ
         if (!$product || $product['stock'] < $item['quantity']) {
-            // โยน Error เพื่อให้ catch ทำงาน และ rollBack
             throw new Exception("ขออภัย สินค้า \"" . $item['pname'] . "\" มีไม่เพียงพอ (เหลือ " . $product['stock'] . " ชิ้น)");
         }
     }
 
+    // 5. ดึงข้อมูลที่อยู่และชื่อลูกค้า
     $stmt_address = $pdo -> prepare("select first_name, last_name, phone, address, province, postal_code from gs_member where username = ?");
     $stmt_address -> execute([$_SESSION['username']]);
     $address = $stmt_address -> fetch();
 
-    $address_final = $address['first_name'] . " " . $address['last_name'] . " (" . $address['phone'] . ")\n" .
+    // **เก็บชื่อลูกค้าไว้ใช้ใน Log**
+    $first_name = $address['first_name'];
+    $last_name = $address['last_name'];
+
+    $address_final = $first_name . " " . $last_name . " (" . $address['phone'] . ")\n" .
         $address['address'] . ", " . $address['province'] . ", " . $address['postal_code'];
 
-    // 4. (แก้ไข) สร้างออเดอร์หลัก (แนะนำให้ระบุชื่อคอลัมน์)
+    // 6. สร้างออเดอร์หลัก
     $stmt_ins_order = $pdo->prepare("INSERT INTO gs_orders (username, status, payment_method, address) 
                                         VALUES (?, 'pending', 'cod', ?)");
     $stmt_ins_order->execute([$_SESSION['username'], $address_final]);
-    $last_order_id = $pdo->lastInsertId(); // <-- (แก้ไข) เก็บ ID ออเดอร์
+    $last_order_id = $pdo->lastInsertId();
 
-    // 5. (แก้ไข) เตรียมคำสั่ง insert item "ครั้งเดียว" นอก loop
+    // 7. เตรียมคำสั่ง insert item และ update stock
     $stmt_ins_item = $pdo->prepare("INSERT INTO gs_orders_item (ord_id, pid, quantity, price_each) 
                                         VALUES (?, ?, ?, ?)");
-
     $stmt_update_stock = $pdo -> prepare("UPDATE gs_product SET stock = stock - ? WHERE pid = ?");
 
-    // 6. (แก้บั๊กที่ 1) วนลูปจาก array
+    // 8. วนลูปเพื่อบันทึกรายการสินค้าและอัปเดตสต็อกใน DB
     foreach ($cart_items as $row) {
-        // คำนวณราคา (เหมือนเดิม)
+
         if ($row['discount_type'] == "fixed") {
             $item_unit_price = $row["price"] - $row["discount_value"];
         } else if ($row['discount_type'] == "percent") {
+            // คำนวณตาม Logic เดิม
             $item_unit_price = $row["price"] - ($row["discount_value"] * $row["price"]);
         } else {
             $item_unit_price = $row['price'];
         }
         $item_unit_price_rounded = round($item_unit_price);
 
-        // 7. (แก้ไข) execute โดยส่งค่าเข้าไป
         $stmt_update_stock -> execute([$row['quantity'], $row['pid']]);
         $stmt_ins_item->execute([$last_order_id, $row['pid'], $row['quantity'], $item_unit_price_rounded]);
     }
 
-    // 8. (เดิม) ลบสินค้าออกจากตะกร้า
+    // 9. ลบสินค้าออกจากตะกร้า
     $stmt_clear_cart = $pdo->prepare("DELETE FROM gs_cart WHERE username = ?");
     $stmt_clear_cart->execute([$_SESSION['username']]);
 
-    // 9. (ใหม่) ถ้าทุกอย่างสำเร็จ ให้ commit (ยืนยัน)
+    // 10. ถ้าทุกอย่างสำเร็จ ให้ commit (ยืนยัน)
     $pdo->commit();
 
+
+    // ----------------------------------------------------------------------
+    // --- (สำคัญ!) ส่วน Log CSV ที่ทำงานเมื่อ Commit สำเร็จแล้ว ---
+    // ----------------------------------------------------------------------
+
+    // A. ตรวจสอบ/สร้าง Header ของไฟล์ (ทำแค่ครั้งแรก)
+// A. ตรวจสอบ/สร้าง Header ของไฟล์ (ทำแค่ครั้งแรก)
+    if (!file_exists($log_file) || filesize($log_file) == 0) {
+
+        // --- (เพิ่ม) ---
+        $bom = "\xEF\xBB\xBF"; // นี่คือโค้ดลับ (BOM) บอก Excel ว่าเป็น UTF-8
+        // -------------
+
+        error_log($bom . $log_header . "\n", 3, $log_file); // เอา BOM มาแปะหน้าสุด
+    }
+
+    // B. วนลูปบันทึกทีละรายการสินค้า
+    foreach ($cart_items as $row) {
+        // 1. คำนวณส่วนลดต่อชิ้นเพื่อใช้ใน Log
+        $total_discount_log = 0;
+        if ($row['discount_type'] == "fixed") {
+            $total_discount_log = $row['discount_value'];
+        } else if ($row['discount_type'] == "percent") {
+            // ใช้ค่าเดียวกับที่ถูกบันทึกใน foreach ก่อนหน้า
+            $total_discount_log = $row['discount_value'] * $row['price'];
+        }
+
+        // 2. จัดรูปแบบข้อความ CSV
+        $log_message = $last_order_id
+            . "," . $currentDate
+            . "," . $currentTime
+            . "," . $first_name
+            . "," . $last_name
+            . "," . $row['quantity']
+            . "," . number_format($row['price'], 2, '.', '') // ราคาเดิม
+            . "," . number_format(round($total_discount_log), 2, '.', '') // ส่วนลดต่อชิ้น (ปัดเศษ)
+            . "," . $payment_method
+            . "\n";
+
+        // 3. บันทึก Log เข้าไฟล์
+        error_log($log_message, 3, $log_file);
+    }
+    // ----------------------------------------------------------------------
+
+
 } catch (Exception $e) {
-    // 10. (ใหม่) ถ้ามีอะไรพลาด ให้ rollBack (ยกเลิกทั้งหมด)
+    // 11. ถ้ามีอะไรพลาด ให้ rollBack (ยกเลิกทั้งหมด)
     $pdo->rollBack();
     $order_success = false;
-    $error_message = $e->getMessage(); // (เก็บไว้ debug)
+    $error_message = $e->getMessage();
 }
 ?>
 
@@ -668,7 +726,6 @@ try {
             <p>
                 <?php
                 // เราใช้ htmlspecialchars() เพื่อความปลอดภัย
-                // เผื่อชื่อสินค้ามีตัวอักษรแปลกๆ ครับ
                 echo htmlspecialchars($error_message);
                 ?>
             </p>
