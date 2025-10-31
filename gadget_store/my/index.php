@@ -17,6 +17,8 @@ if (!$user) {
     header("location: ../login_request/?error=User not found");
     exit;
 }
+
+$session_id = session_id();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -134,6 +136,7 @@ if (!$user) {
                 <?=htmlspecialchars($user['postal_code'])?>
             </p>
             <p><strong>วันที่สมัคร:</strong> <?=$user['creation_date']?></p>
+            <p><strong>Session ID: </strong><?=$session_id?></p>
         </div>
     </section>
 

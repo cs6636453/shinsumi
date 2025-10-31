@@ -36,7 +36,6 @@ if ($quantity_to_add <= 0) {
     $quantity_to_add = 1;
 }
 
-// 7. --- หัวใจหลัก (เหมือนเดิม) ---
 $sql = "INSERT INTO gs_cart (username, pid, quantity) 
         VALUES (?, ?, ?)
         ON DUPLICATE KEY UPDATE 
@@ -44,11 +43,7 @@ $sql = "INSERT INTO gs_cart (username, pid, quantity)
 
 try {
     $stmt = $pdo->prepare($sql);
-
-    // ส่งค่า $product_id (ที่เราเช็กแล้ว) เข้าไป
     $stmt->execute([$username, $product_id, $quantity_to_add]);
-
-    // 8. (แก้ไข) ถ้าสำเร็จ: ส่ง user ไปที่ './' (ซึ่งก็คือ ../cart/)
     header("location: ./");
     exit;
 

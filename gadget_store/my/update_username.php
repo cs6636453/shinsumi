@@ -44,7 +44,6 @@ try {
         exit;
     }
 
-    // 5. เช็กว่า username ใหม่ มีคนใช้หรือยัง
     $stmt_check_user = $pdo->prepare("SELECT username FROM gs_member WHERE username = ?");
     $stmt_check_user->execute([$new_username]);
     if ($stmt_check_user->fetch()) {
@@ -52,13 +51,8 @@ try {
         exit;
     }
 
-    // --- ส่วนที่อันตราย ---
-    // 6. ถ้าทุกอย่างผ่าน -> อัปเดต username ใน gs_member
-    // (ย้ำ! ต้องมั่นใจว่า FK มี ON UPDATE CASCADE หรือเขียนโค้ด UPDATE ตารางอื่นเอง)
     $stmt_update_user = $pdo->prepare("UPDATE gs_member SET username = ? WHERE username = ?");
     $stmt_update_user->execute([$new_username, $_SESSION['username']]);
-
-    // 7. อัปเดต username ใน Session ด้วย!
     $_SESSION['username'] = $new_username;
 
     // สำเร็จ!
