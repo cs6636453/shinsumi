@@ -82,4 +82,8 @@
     main {
         overflow-x: hidden;
     }
+
+    section + h1 {
+        font-size: 25px;
+    }
 }
