@@ -95,46 +95,44 @@
         </ul>
     </div>
     <main>
-        <span class="login">
-            <h1>สมัครสมาชิก</h1>
-            <form action="" method="POST" onsubmit="return false;">
-                <label for="username">Username</label><br>
-                <input type="text" id="username" name="username" required onkeyup="checkUsername()">
-                <div id="erroruse"></div><br>
-                <label for="password">Password</label><br>
-                <input type="password" id="password" name="password" required><br>
+        <h1>สมัครสมาชิก</h1>
+        <form action="" method="POST" onsubmit="return false;">
+            <label for="username">Username</label><br>
+            <input type="text" id="username" name="username" required onkeyup="checkUsername()">
+            <div id="erroruse"></div><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" required><br>
 
-                <label for="cf_password">Confirm Password</label><br>
-                <input type="password" id="cf_password" name="password" onkeyup="check_password()" required>
-                <div id="errorpass"></div><br>
-                <label for="first_name">ชื่อ</label><br>
-                <input type="text" id="first_name" name="first_name" required><br>
+            <label for="cf_password">Confirm Password</label><br>
+            <input type="password" id="cf_password" name="password" onkeyup="check_password()" required>
+            <div id="errorpass"></div><br>
+            <label for="first_name">ชื่อ</label><br>
+            <input type="text" id="first_name" name="first_name" required><br>
 
-                <label for="last_name">นามสกุล</label><br>
-                <input type="text" id="last_name" name="last_name" required><br>
+            <label for="last_name">นามสกุล</label><br>
+            <input type="text" id="last_name" name="last_name" required><br>
 
-                <label for="address">Address</label><br>
-                <textarea id="address" name="address" required></textarea><br>
+            <label for="address">Address</label><br>
+            <textarea id="address" name="address" required></textarea><br>
 
-                <label for="postal">Postal Code</label><br>
-                <input type="text" id="postal" name="postal" onkeyup="getDataFromPostal()" pattern="[0-9]{5}" required><br>
+            <label for="postal">Postal Code</label><br>
+            <input type="text" id="postal" name="postal" onkeyup="getDataFromPostal()" pattern="[0-9]{5}" required><br>
 
-                <label for="province">Province</label><br>
-                <select name="province" id="province" required>
-                    <option>กรุณากรอกรหัสไปรษณีย์</option>
-                </select><br>
+            <label for="province">Province</label><br>
+            <select name="province" id="province" required>
+                <option>กรุณากรอกรหัสไปรษณีย์</option>
+            </select><br>
 
-                <label for="email">Email</label><br>
-                <input type="email" id="email" name="email" required><br>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" required><br>
 
-                <label for="tel">Tel.</label><br>
-                <input type="text" id="tel" name="tel" required pattern="[0-9]{9,10}"><br>
+            <label for="tel">Tel.</label><br>
+            <input type="text" id="tel" name="tel" required pattern="^[0-9]{9,10}"><br>
 
-                <input type="submit" id="submit" value="Sign up" onclick="send_register() ">
-                <div id="error"></div><br>
-                <a href="../login_request/" id="back_to_login">Already signed up?</a>
-            </form>
-        </span>
+            <input type="submit" id="submit" value="Sign up" onclick="send_register() ">
+            <div id="error"></div><br>
+            <a href="../login_request/" id="back_to_login">Already signed up?</a>
+        </form>
     </main>
     <footer>
         <h1><label>TEL</label> 095-484-9802</h1>

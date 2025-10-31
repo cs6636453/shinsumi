@@ -64,15 +64,14 @@ while ($row = $stmt->fetch()) {
     }
     // --- จบตรรกะการกรอง ---
 
-    $found_rows++; // ถ้าไม่ข้าม แสดงว่าเจอแถวที่ตรง
-
+    $found_rows++;
     echo "<tr>";
 
-    // (แสดงผลคอลัมน์ - เหมือนเดิม)
     echo "<td>" . htmlspecialchars($row['pr_name']) . "</td>";
     echo "<td>" . htmlspecialchars($row['discount_type']) . "</td>";
     echo "<td>" . $date_display . "</td>";
-    echo "<td><span class='status-badge " . $status_class . "'>" . $status_text . "</span></td>";
+    echo "<td><span class='status-badge " . $status_class . "'>" .
+         $status_text . "</span></td>";
 
     // (สร้างปุ่ม - เหมือนเดิม)
     $safe_name = htmlspecialchars($row["pr_name"], ENT_QUOTES);

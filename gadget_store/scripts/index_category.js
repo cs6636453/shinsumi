@@ -28,8 +28,6 @@ function getBagResult() {
     }
 }
 
-bag_index(0);
-
 let xml_caseQuery;
 
 let case_ = [
@@ -61,4 +59,7 @@ function getCaseResult() {
     }
 }
 
-case_index(0);
+document.addEventListener("DOMContentLoaded", function() {
+    bag_index(0);
+    case_index(0);
+});

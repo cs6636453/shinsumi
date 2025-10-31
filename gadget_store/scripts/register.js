@@ -52,6 +52,12 @@ function send_register() {
     let email = document.getElementById("email").value;
     let tel = document.getElementById("tel").value;
 
+    if ( !/^[0-9]{9,10}$/.test(tel) ) {
+        document.getElementById('error').innerHTML = 'เบอร์โทรศัพท์ไม่ถูกต้อง';
+        document.getElementById("submit").value = "Sign up";
+        return;
+    }
+
     if (!username || !password || !cf_password || !first_name || !last_name ||
         !address || !postal || !province || !email || !tel) {
         document.getElementById('error').innerHTML = 'ท่านกรอกข้อมูลไม่ครบถ้วน';
